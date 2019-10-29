@@ -90,7 +90,7 @@
 										<label for="reader-me">
 											<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
 										</label>
-							  	</div>
+							  	</div>x`
 										<div class="am-cf">
 											<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
 										</div>
