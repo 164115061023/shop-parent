@@ -125,7 +125,7 @@
 													<a class="i-markRead" target="_blank" href="blog.jsp">
 														<img src="/static/images/TB102.jpg">
 														<p class="s-main-content">
-															${activityList.title}
+															${activityList.activityTitle}
 														</p>
 														<p class="s-row s-main-content">
 															<a href="/person/mynest/blog">
