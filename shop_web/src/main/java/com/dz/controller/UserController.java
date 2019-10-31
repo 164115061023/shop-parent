@@ -1,6 +1,11 @@
 package com.dz.controller;
 
 import com.dz.pojo.User;
+<<<<<<< HEAD
+=======
+import com.dz.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> d203247360f1bb7bd00d7ae60f7ac4115bad9f30
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,11 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserController {
 
+
     //跳转到登录页面
+
+    @Autowired
+    private UserService userService;
+
+
     @RequestMapping("/login")
     public String login(){
         return "user/login";
     }
+
     /*@RequestMapping("/main")
     public String main(){
         return "user/main";
@@ -22,5 +34,33 @@ public class UserController {
     @RequestMapping("/register")
     public String register(){
         return "user/register";
+
+
+    @RequestMapping("/tologin")
+    public String tologin(String username, String password, Model model){
+        User user = userService.findByLoginName(username);
+        if(user!=null && user.getPassword().equals(password)){
+            return "redirect:/main/home";
+        }else{
+            model.addAttribute("code","200");
+            return "redirect:/user/login";
+        }
+
     }
+
+    @RequestMapping("/register")
+    public String register(){
+        return "user/register";
+    }
+
+
+    @RequestMapping("/toregister")
+    public String toregister(String username, String password1){
+
+        System.out.println(username+" "+password1);
+
+
+        return "user/register";
+    }
+
 }

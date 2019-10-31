@@ -1,10 +1,13 @@
 package com.dz.pojo;
 
 public class ProductCoupon {
+
+    //优惠券
     private Integer id;
-    private Integer productId;
-    private double minMoney;
-    private double maxMoney;
+    private Integer productId;//产品id
+    private Double minMoney;//最小钱数
+    private Double maxMoney;//最大钱数
+
 
     public Integer getId() {
         return id;
@@ -22,19 +25,19 @@ public class ProductCoupon {
         this.productId = productId;
     }
 
-    public double getMinMoney() {
+    public Double getMinMoney() {
         return minMoney;
     }
 
-    public void setMinMoney(double minMoney) {
+    public void setMinMoney(Double minMoney) {
         this.minMoney = minMoney;
     }
 
-    public double getMaxMoney() {
+    public Double getMaxMoney() {
         return maxMoney;
     }
 
-    public void setMaxMoney(double maxMoney) {
+    public void setMaxMoney(Double maxMoney) {
         this.maxMoney = maxMoney;
     }
 }

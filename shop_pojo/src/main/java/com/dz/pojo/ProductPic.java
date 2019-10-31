@@ -1,11 +1,12 @@
 package com.dz.pojo;
 
 public class ProductPic {
+    //商品照片
     private Integer id;
-    private Integer productId;
-    private String picDesc;
-    private String path;
-    private Integer picOrder;
+    private Integer productId;//商品id
+    private String picDesc;//照片描述
+    private String path;//路径
+    private Integer picOrder;//图片顺序
 
     public Integer getId() {
         return id;

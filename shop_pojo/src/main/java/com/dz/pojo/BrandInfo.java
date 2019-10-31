@@ -1,11 +1,14 @@
 package com.dz.pojo;
 
 public class BrandInfo {
+    //品牌信息
     private Integer id;
-    private String brandName;
-    private String brandLoge;
+    private String brandName;//品牌名
+    private String brandLogo;//品牌LOGO路径
     private String brandDesc;//品牌描述
-    private String telephone;
+    private String telephone;//电话
+
+
 
     public Integer getId() {
         return id;
@@ -23,12 +26,13 @@ public class BrandInfo {
         this.brandName = brandName;
     }
 
-    public String getBrandLoge() {
-        return brandLoge;
+
+    public String getBrandLogo() {
+        return brandLogo;
     }
 
-    public void setBrandLoge(String brandLoge) {
-        this.brandLoge = brandLoge;
+    public void setBrandLogo(String brandLoge) {
+        this.brandLogo = brandLoge;
     }
 
     public String getBrandDesc() {

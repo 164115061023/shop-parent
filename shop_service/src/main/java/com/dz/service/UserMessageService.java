@@ -20,4 +20,5 @@ public class UserMessageService {
     public void findById(Integer id){
         userMessageDao.findById(id);
     }
+
 }

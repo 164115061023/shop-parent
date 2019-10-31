@@ -131,7 +131,11 @@
 								<div class="am-form-group">
 									<label for="user-name2" class="am-form-label">昵称</label>
 									<div class="am-form-content">
+
 										<input type="text" id="user-name2" name="{{name}}" placeholder="nickname">
+
+
+
 
 									</div>
 								</div>
@@ -139,7 +143,11 @@
 								<div class="am-form-group">
 									<label for="user-name1" class="am-form-label">姓名</label>
 									<div class="am-form-content">
+
 										<input type="text" id="user-name1" name="username" value="${requestScope.username.username}" placeholder="name">
+
+
+
 
 									</div>
 								</div>
@@ -266,7 +274,6 @@
 
 		<script>
 			$(function () {
-
 			});
 		</script>
 	</body>

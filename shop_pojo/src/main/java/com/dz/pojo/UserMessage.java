@@ -4,18 +4,12 @@ public class UserMessage {
     private Integer id;
     private String name; //姓名
     private String sex;  //性别
-
     private String tel;  //电话
     private String email; //邮箱
-
-
     private String birthday;//出生日期
-
     private Integer userLoginId;//会员登录表Id
     //一对一关系
     private UserLogin userLogin;
-
-
 
     public Integer getId() {
         return id;
@@ -41,8 +35,6 @@ public class UserMessage {
         this.sex = sex;
     }
 
-
-
     public String getTel() {
         return tel;
     }
@@ -66,8 +58,6 @@ public class UserMessage {
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-
-
 
     public Integer getUserLoginId() {
         return userLoginId;

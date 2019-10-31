@@ -7,4 +7,5 @@
 
     <import resource="applicationContext-dao.xml"/>
     <import resource="applicationContext-service.xml"/>
+
 </beans>

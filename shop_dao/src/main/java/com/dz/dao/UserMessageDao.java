@@ -1,6 +1,7 @@
 package com.dz.dao;
 
 import com.dz.pojo.UserMessage;
+
 import org.apache.ibatis.annotations.*;
 
 public interface UserMessageDao {
