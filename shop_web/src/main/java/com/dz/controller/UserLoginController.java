@@ -1,7 +1,7 @@
 package com.dz.controller;
 
 import com.dz.pojo.User;
-import com.dz.service.UserService;
+import com.dz.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserLoginController {
 
     @Autowired
-    private UserService userService;
+    private UserLoginService userLoginService;
 
     @RequestMapping("/login")
     public String login(){
@@ -21,7 +21,7 @@ public class UserController {
 
     @RequestMapping("/tologin")
     public String tologin(String username, String password, Model model){
-        User user = userService.findByLoginName(username);
+        User user = userLoginService.findByLoginName(username);
         if(user!=null && user.getPassword().equals(password)){
             return "redirect:/main/home";
         }else{
