@@ -13,7 +13,6 @@
         <module>shop_service</module>
         <module>shop_dao</module>
         <module>shop_web</module>
-        <module>shop_shiro</module>
     </modules>
 
     <dependencies>
