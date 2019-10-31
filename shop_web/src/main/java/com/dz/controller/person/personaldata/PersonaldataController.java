@@ -18,6 +18,7 @@ public class PersonaldataController  {
     private  UserMessageService userMessageService;
     private UserLoginService userLoginService;
 
+
     //跳转到个人信息页面
     @RequestMapping("/information")
     public String information(HttpServletRequest request, Model model){

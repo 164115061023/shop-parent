@@ -8,10 +8,6 @@ import org.apache.ibatis.annotations.Select;
 
 public interface UserDao {
 
-    @Select("select * from t_user where username=#{username}")
-    @Results({
-            @Result(id = true,property = "id",column = "id"),
-            @Result(property = "roleList",column = "id",many = @Many(select = "com.dz.dao.RoleDao.findRoleListByUserId"))
-    })
+
     User findByLoginName(String loginName);
 }
