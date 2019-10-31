@@ -35,7 +35,7 @@
             <div class="clear"></div>
 
             <div class="login-form">
-                <form action="/user/tologin" method="post">
+                <form action="/home/home" method="post">
                     <div class="user-name">
                         <label for="user"><i class="am-icon-user"></i></label>
                         <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
@@ -50,12 +50,13 @@
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
                 <a href="#" class="am-fr">忘记密码</a>
-                <a href="register.html" class="zcnext am-fr am-btn-default">注册</a>
+                <a href="/user/register" class="zcnext am-fr am-btn-default">注册</a>
                 <br/>
             </div>
             <div class="am-cf">
                 <input id="submit" type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
             </div>
+
             <div class="partner">
                 <h3>合作账号</h3>
                 <div class="am-btn-group">

@@ -11,22 +11,22 @@
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-		<link rel="stylesheet" href="../AmazeUI-2.4.2/assets/css/amazeui.min.css" />
-		<link href="../css/dlstyle.css" rel="stylesheet" type="text/css">
-		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+		<link rel="stylesheet" href="/static/AmazeUI-2.4.2/assets/css/amazeui.min.css" />
+		<link href="/static/css/dlstyle.css" rel="stylesheet" type="text/css">
+		<script src="/static/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="/static/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 
 	</head>
 
 	<body>
 
 		<div class="login-boxtitle">
-			<a href="home/demo.html"><img alt="" src="../images/logobig.png" /></a>
+			<a href="home/demo.html"><img alt="" src="/static/images/logobig.png" /></a>
 		</div>
 
 		<div class="res-banner">
 			<div class="res-main">
-				<div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
+				<div class="login-banner-bg"><span></span><img src="/static/images/big.jpg" /></div>
 				<div class="login-box">
 
 						<div class="am-tabs" id="doc-my-tabs">
@@ -79,16 +79,16 @@
 										</div>
                  <div class="user-pass">
 								    <label for="password"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="" id="password" placeholder="设置密码">
+								    <input type="password" name="" id="password2" placeholder="设置密码">
                  </div>										
                  <div class="user-pass">
 								    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="" id="passwordRepeat" placeholder="确认密码">
+								    <input type="password" name="" id="passwordRepeat2" placeholder="确认密码">
                  </div>	
 									</form>
 								 <div class="login-links">
 										<label for="reader-me">
-											<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+											<input id="reader-me2" type="checkbox"> 点击表示您同意商城《服务协议》
 										</label>
 							  	</div>x`
 										<div class="am-cf">
@@ -132,6 +132,7 @@
 							</p>
 						</div>
 					</div>
+		</div>
 	</body>
 
 </html>
