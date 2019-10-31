@@ -3,20 +3,16 @@
 <html>
 
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
-		<title>钱款去向</title>
+		<title>安全设置</title>
 
 		<link href="/static/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
 		<link href="/static/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
 		<link href="/static/css/personal.css" rel="stylesheet" type="text/css">
-		<link href="/static/css/refstyle.css" rel="stylesheet" type="text/css">
-
-		<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
-		<script src="/static/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
-
+		<link href="/static/css/infstyle.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
@@ -91,84 +87,118 @@
 		<div class="center">
 			<div class="col-main">
 				<div class="main-wrap">
-					<!--标题 -->
-					<div class="am-cf am-padding">
-						<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">钱款去向</strong> / <small>Apply&nbsp;for&nbsp;returns</small></div>
-					</div>
-					<hr/>
-					<div class="comment-list">
 
-						<div class="record-aside">
-							<div class="item-pic">
-								<a href="#" class="J_MakePoint">
-									<img src="/static/images/comment.jpg_400x400.jpg" class="itempic">
-								</a>
+					<!--标题 -->
+					<div class="user-safety">
+						<div class="am-cf am-padding">
+							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">账户安全</strong> / <small>Set&nbsp;up&nbsp;Safety</small></div>
+						</div>
+						<hr/>
+
+						<!--头像 -->
+						<div class="user-infoPic">
+
+							<div class="filePic">
+								<img class="am-circle am-img-thumbnail" src="/static/images/getAvatar.do.jpg" alt="" />
 							</div>
 
-							<div class="item-title">
+							<p class="am-form-help">头像</p>
 
-								<div class="item-name">
-									<a href="#">
-										<p class="item-basic-info">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+							<div class="info-m">
+								<div><b>用户名：<i>小叮当</i></b></div>
+								<div class="u-level">
+									<span class="rank r2">
+							             <s class="vip1"></s><a class="classes" href="#">铜牌会员</a>
+						            </span>
+								</div>
+								<div class="u-safety">
+									<a href="safety.jsp">
+									 账户安全
+									<span class="u-profile"><i class="bc_ee0000" style="width: 60px;" width="0">60分</i></span>
 									</a>
 								</div>
-								<div class="info-little">
-									<span>颜色：洛阳牡丹</span>
-									<span>包装：裸装</span>
-								</div>
 							</div>
-							<div class="item-info">
-								<div class="item-ordernumber">
-									<span class="info-title">退款编号：</span><a>147478464147</a>
-								</div>
-
-								<div class="item-time">
-									<span class="info-title">申请时间：</span><span class="time">2015-12-16&nbsp;17:07</span>
-								</div>
-
-							</div>
-							<div class="clear"></div>
 						</div>
 
-						<div class="record-main">
-							<div class="detail-list refund-process">
-							    <div class="fund-tool">中国农业银行(尾号3361)</div>
-								<div class="money">66.00</div>
-							</div>
-							<div class="clear"></div>
-							<!--进度条-->
-							<div class="m-progress" style="height: 100px;">
-								<div class="m-progress-list">
-									<span class="step-1 step">
-                                <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">1<em class="bg"></em></i>
-                                <p class="stage-name">卖家退款 </p>
-                                <p class="stage-name">2015-12-21<br>17:38:29</p>
-                            </span>
-									<span class="step-2 step">
-                                <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
-                                <p class="stage-name">银行受理</p>
-                                <p class="stage-name">2015-12-21<br>19:38:29</p>
-                            </span>
-									<span class="step-3 step">
-                                <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">3<em class="bg"></em></i>
-                                <p class="stage-name">退款成功</p>
-                                <p class="stage-name">2015-12-21<br>19:58:29</p>
-                            </span>
-									<span class="u-progress-placeholder"></span>
-								</div>
-								<div class="u-progress-bar total-steps-2">
-									<div class="u-progress-bar-inner"></div>
-								</div>
-							</div>
+						<div class="check">
+							<ul>
+								<li>
+									<i class="i-safety-lock"></i>
+									<div class="m-left">
+										<div class="fore1">登录密码</div>
+										<div class="fore2"><small>为保证您购物安全，建议您定期更改密码以保护账户安全。</small></div>
+									</div>
+									<div class="fore3">
+										<a href="/person/personaldata/password">
+											<div class="am-btn am-btn-secondary">修改</div>
+										</a>
+									</div>
+								</li>
+								<li>
+									<i class="i-safety-wallet"></i>
+									<div class="m-left">
+										<div class="fore1">支付密码</div>
+										<div class="fore2"><small>启用支付密码功能，为您资产账户安全加把锁。</small></div>
+									</div>
+									<div class="fore3">
+										<a href="/person/personaldata/setpay">
+											<div class="am-btn am-btn-secondary">立即启用</div>
+										</a>
+									</div>
+								</li>
+								<li>
+									<i class="i-safety-iphone"></i>
+									<div class="m-left">
+										<div class="fore1">手机验证</div>
+										<div class="fore2"><small>您验证的手机：186XXXXXXXX 若已丢失或停用，请立即更换</small></div>
+									</div>
+									<div class="fore3">
+										<a href="/person/personaldata/bindphone">
+											<div class="am-btn am-btn-secondary">换绑</div>
+										</a>
+									</div>
+								</li>
+								<li>
+									<i class="i-safety-mail"></i>
+									<div class="m-left">
+										<div class="fore1">邮箱验证</div>
+										<div class="fore2"><small>您验证的邮箱：5831XXX@qq.com 可用于快速找回登录密码</small></div>
+									</div>
+									<div class="fore3">
+										<a href="/person/personaldata/email">
+											<div class="am-btn am-btn-secondary">换绑</div>
+										</a>
+									</div>
+								</li>
+								<li>
+									<i class="i-safety-idcard"></i>
+									<div class="m-left">
+										<div class="fore1">实名认证</div>
+										<div class="fore2"><small>用于提升账号的安全性和信任级别，认证后不能修改认证信息。</small></div>
+									</div>
+									<div class="fore3">
+										<a href="/person/personaldata/idcard">
+											<div class="am-btn am-btn-secondary">认证</div>
+										</a>
+									</div>
+								</li>
+								<li>
+									<i class="i-safety-security"></i>
+									<div class="m-left">
+										<div class="fore1">安全问题</div>
+										<div class="fore2"><small>保护账户安全，验证您身份的工具之一。</small></div>
+									</div>
+									<div class="fore3">
+										<a href="/person/personaldata/question">
+											<div class="am-btn am-btn-secondary">认证</div>
+										</a>
+									</div>
+								</li>
+							</ul>
 						</div>
 
 					</div>
-					<div class="clear"></div>
 				</div>
-
 				<!--底部-->
 				<div class="footer">
 					<div class="footer-hd">
@@ -195,7 +225,7 @@
 			</div>
 
 			<jsp:include page="../left/left.jsp">
-				<jsp:param name="menu" value="record"/>
+				<jsp:param name="menu" value="safety"/>
 			</jsp:include>
 		</div>
 

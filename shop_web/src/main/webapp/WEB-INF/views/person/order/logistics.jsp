@@ -8,11 +8,11 @@
 
 		<title>物流</title>
 
-		<link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-		<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/static/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/static/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-		<link href="../css/personal.css" rel="stylesheet" type="text/css">
-		<link href="../css/lostyle.css" rel="stylesheet" type="text/css">
+		<link href="/static/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/static/css/lostyle.css" rel="stylesheet" type="text/css">
 
 	</head>
 
@@ -33,24 +33,26 @@
 						</ul>
 						<ul class="message-r">
 							<div class="topMessage home">
-								<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+								<div class="menu-hd"><a href="/home/home" target="_top" class="h">商城首页</a></div>
 							</div>
 							<div class="topMessage my-shangcheng">
-								<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+								<div class="menu-hd MyShangcheng"><a href="/person/index" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 							</div>
 							<div class="topMessage mini-cart">
 								<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 							</div>
 							<div class="topMessage favorite">
 								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+							</div>
 						</ul>
+
 						</div>
 
 						<!--悬浮搜索框-->
 
 						<div class="nav white">
 							<div class="logoBig">
-								<li><img src="../images/logobig.png" /></li>
+								<li><img src="/static/images/logobig.png" /></li>
 							</div>
 
 							<div class="search-bar pr">
@@ -96,7 +98,7 @@
 						<div class="package-title">
 							<div class="m-item">
 								<div class="item-pic">
-									<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+									<img src="/static/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
 								</div>
 								<div class="item-info">
 									<p class="log-status">物流状态:<span>已签收</span> </p>
@@ -146,19 +148,19 @@
 									</div>
 								</li>
 								<li>
-									<p class="text">【绍兴市】天天快递 诸暨收件员 已揽件</span>
+									<p class="text">【绍兴市】天天快递 诸暨收件员 已揽件</p>
 										<div class="time-list">
 											<span class="date hidden">2015-12-17</span><span class="week hidden">周四</span><span class="time">18:54:25</span>
 										</div>
 								</li>
 								<li>
-									<p class="text">商家正通知快递公司揽件</span>
+									<p class="text">商家正通知快递公司揽件</p>
 										<div class="time-list">
 											<span class="date hidden">2015-12-17</span><span class="week hidden">周四</span><span class="time">15:49:40</span>
 										</div>
 								</li>
 								<li>
-									<p class="text">您的包裹已出库</span>
+									<p class="text">您的包裹已出库</p>
 										<div class="time-list">
 											<span class="date hidden">2015-12-17</span><span class="week hidden">周四</span><span class="time">15:49:40</span>
 										</div>
@@ -204,48 +206,11 @@
 					</div>
 				</div>
 			</div>
-			<aside class="menu">
-				<ul>
-					<li class="person">
-						<a href="../index.html">个人中心</a>
-					</li>
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li> <a href="../personal_data/information.jsp">个人信息</a></li>
-							<li> <a href="../personal_data/safety.jsp">安全设置</a></li>
-							<li> <a href="../personal_data/address.jsp">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li><a href="order.jsp">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="../my_assets/coupon.jsp">优惠券 </a></li>
-							<li> <a href="../my_assets/bonus.jsp">红包</a></li>
-							<li> <a href="../my_assets/bill.jsp">账单明细</a></li>
-						</ul>
-					</li>
 
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="../my_nest/collection.jsp">收藏</a></li>
-							<li> <a href="../my_nest/foot.jsp">足迹</a></li>
-							<li> <a href="../my_nest/comment.jsp">评价</a></li>
-							<li class="active"> <a href="../my_nest/news.jsp">消息</a></li>
-						</ul>
-					</li>
 
-				</ul>
-
-			</aside>
+			<jsp:include page="../left/left.jsp">
+				<jsp:param name="menu" value="logistics"/>
+			</jsp:include>
 		</div>
 
 	</body>

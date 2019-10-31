@@ -6,15 +6,15 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
 
-		<title>钱款去向</title>
+		<title>账单明细</title>
 
 		<link href="/static/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
 		<link href="/static/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
 		<link href="/static/css/personal.css" rel="stylesheet" type="text/css">
-		<link href="/static/css/refstyle.css" rel="stylesheet" type="text/css">
+		<link href="/static/css/bilstyle.css" rel="stylesheet" type="text/css">
 
-		<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
+		<script src="/static/AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
 		<script src="/static/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 
 	</head>
@@ -91,84 +91,101 @@
 		<div class="center">
 			<div class="col-main">
 				<div class="main-wrap">
-					<!--标题 -->
 					<div class="am-cf am-padding">
-						<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">钱款去向</strong> / <small>Apply&nbsp;for&nbsp;returns</small></div>
+						<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">账单明细</strong> / <small>Electronic&nbsp;bill</small></div>
 					</div>
-					<hr/>
-					<div class="comment-list">
+					<hr>
 
-						<div class="record-aside">
-							<div class="item-pic">
-								<a href="#" class="J_MakePoint">
-									<img src="/static/images/comment.jpg_400x400.jpg" class="itempic">
-								</a>
-							</div>
+					<!--交易时间	-->
 
-							<div class="item-title">
-
-								<div class="item-name">
-									<a href="#">
-										<p class="item-basic-info">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
-									</a>
-								</div>
-								<div class="info-little">
-									<span>颜色：洛阳牡丹</span>
-									<span>包装：裸装</span>
-								</div>
-							</div>
-							<div class="item-info">
-								<div class="item-ordernumber">
-									<span class="info-title">退款编号：</span><a>147478464147</a>
-								</div>
-
-								<div class="item-time">
-									<span class="info-title">申请时间：</span><span class="time">2015-12-16&nbsp;17:07</span>
-								</div>
-
-							</div>
-							<div class="clear"></div>
+					<div class="order-time">
+						<label class="form-label">交易时间：</label>
+						<div class="show-input">
+							<select class="am-selected" data-am-selected>
+								<option value="today">今天</option>
+								<option value="sevenDays" selected="">最近一周</option>
+								<option value="oneMonth">最近一个月</option>
+								<option value="threeMonths">最近三个月</option>
+								<option class="date-trigger">自定义时间</option>
+							</select>
 						</div>
-
-						<div class="record-main">
-							<div class="detail-list refund-process">
-							    <div class="fund-tool">中国农业银行(尾号3361)</div>
-								<div class="money">66.00</div>
-							</div>
-							<div class="clear"></div>
-							<!--进度条-->
-							<div class="m-progress" style="height: 100px;">
-								<div class="m-progress-list">
-									<span class="step-1 step">
-                                <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">1<em class="bg"></em></i>
-                                <p class="stage-name">卖家退款 </p>
-                                <p class="stage-name">2015-12-21<br>17:38:29</p>
-                            </span>
-									<span class="step-2 step">
-                                <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
-                                <p class="stage-name">银行受理</p>
-                                <p class="stage-name">2015-12-21<br>19:38:29</p>
-                            </span>
-									<span class="step-3 step">
-                                <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">3<em class="bg"></em></i>
-                                <p class="stage-name">退款成功</p>
-                                <p class="stage-name">2015-12-21<br>19:58:29</p>
-                            </span>
-									<span class="u-progress-placeholder"></span>
-								</div>
-								<div class="u-progress-bar total-steps-2">
-									<div class="u-progress-bar-inner"></div>
-								</div>
-							</div>
-						</div>
-
+                          <div class="clear"></div>
 					</div>
-					<div class="clear"></div>
+
+					<table width="100%">
+
+						<thead>
+							<tr>
+								<th class="memo"></th>
+								<th class="time">创建时间</th>
+								<th class="name">名称</th>
+								<th class="amount">金额</th>
+								<th class="action">操作</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td class="img">
+									<i><img src="/static/images/songzi.jpg"></i>
+								</td>
+								<td class="time">
+									<p> 2016-01-28
+									</p>
+									<p class="text-muted"> 10:58
+									</p>
+								</td>
+								<td class="title name">
+									<p class="content">
+										良品铺子精选松子，即开即食全国包邮
+									</p>
+								</td>
+
+								<td class="amount">
+									<span class="amount-pay">- 11.90</span>
+								</td>
+								<td class="operation">
+									删除
+								</td>
+							</tr>
+
+							<tr>
+
+								<td class="img">
+									<i><img src="/static/images/songzi.jpg"></i>
+								</td>
+								<td class="time">
+									<p> 2016-01-28
+									</p>
+									<p class="text-muted"> 10:58
+									</p>
+								</td>
+								<td class="title name">
+									<p class="content">
+										良品铺子精选松子，即开即食全国包邮
+									</p>
+								</td>
+
+								<td class="amount">
+									<span class="amount-pay">- 11.90</span>
+								</td>
+								<td class="operation">
+									删除
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				
+					<script type="text/javascript">
+						$(document).ready(function() {
+							$(".date-trigger").click(function() {
+								$(".show-input").css("display", "none");
+							});
+							
+						 })
+					</script>					
+					
 				</div>
-
 				<!--底部-->
 				<div class="footer">
 					<div class="footer-hd">
@@ -195,7 +212,7 @@
 			</div>
 
 			<jsp:include page="../left/left.jsp">
-				<jsp:param name="menu" value="record"/>
+				<jsp:param name="menu" value="billlist"/>
 			</jsp:include>
 		</div>
 

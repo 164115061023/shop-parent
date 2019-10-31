@@ -8,14 +8,14 @@
 
 		<title>订单详情</title>
 
-		<link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
-		<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
+		<link href="/static/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css">
+		<link href="/static/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 
-		<link href="../css/personal.css" rel="stylesheet" type="text/css">
-		<link href="../css/orstyle.css" rel="stylesheet" type="text/css">
+		<link href="/static/css/personal.css" rel="stylesheet" type="text/css">
+		<link href="/static/css/orstyle.css" rel="stylesheet" type="text/css">
 
-		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+		<script src="/static/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="/static/AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 
 
 	</head>
@@ -37,16 +37,17 @@
 						</ul>
 						<ul class="message-r">
 							<div class="topMessage home">
-								<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+								<div class="menu-hd"><a href="/home/home" target="_top" class="h">商城首页</a></div>
 							</div>
 							<div class="topMessage my-shangcheng">
-								<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+								<div class="menu-hd MyShangcheng"><a href="/person/index" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 							</div>
 							<div class="topMessage mini-cart">
 								<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 							</div>
 							<div class="topMessage favorite">
 								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+							</div>
 						</ul>
 						</div>
 
@@ -54,7 +55,7 @@
 
 						<div class="nav white">
 							<div class="logoBig">
-								<li><img src="../images/logobig.png" /></li>
+								<li><img src="/static/images/logobig.png" /></li>
 							</div>
 
 							<div class="search-bar pr">
@@ -132,7 +133,7 @@
 							<div class="order-logistics">
 								<a href="logistics.jsp">
 									<div class="icon-log">
-										<i><img src="../images/receive.png"></i>
+										<i><img src="/static/images/receive.png"></i>
 									</div>
 									<div class="latest-logistics">
 										<p class="text">已签收,签收人是青年城签收，感谢使用天天快递，期待再次为您服务</p>
@@ -209,7 +210,7 @@
 												<li class="td td-item">
 													<div class="item-pic">
 														<a href="#" class="J_MakePoint">
-															<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
+															<img src="/static/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
 														</a>
 													</div>
 													<div class="item-info">
@@ -243,7 +244,7 @@
 												<li class="td td-item">
 													<div class="item-pic">
 														<a href="#" class="J_MakePoint">
-															<img src="../images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
+															<img src="/static/images/62988.jpg_80x80.jpg" class="itempic J_ItemImg">
 														</a>
 													</div>
 													<div class="item-info">
@@ -285,7 +286,7 @@
 												<li class="td td-status">
 													<div class="item-status">
 														<p class="Mystatus">卖家已发货</p>
-														<p class="order-info"><a href="logistics.jsp">查看物流</a></p>
+														<p class="order-info"><a href="/person/order/logistics">查看物流</a></p>
 														<p class="order-info"><a href="#">延长收货</a></p>
 													</div>
 												</li>
@@ -328,48 +329,12 @@
 				</div>
 
 			</div>
-			<aside class="menu">
-				<ul>
-					<li class="person">
-						<a href="../index.html">个人中心</a>
-					</li>
-					<li class="person">
-						<a href="#">个人资料</a>
-						<ul>
-							<li> <a href="../personal_data/information.jsp">个人信息</a></li>
-							<li> <a href="../personal_data/safety.jsp">安全设置</a></li>
-							<li> <a href="../personal_data/address.jsp">收货地址</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的交易</a>
-						<ul>
-							<li class="active"><a href="order.jsp">订单管理</a></li>
-							<li> <a href="change.html">退款售后</a></li>
-						</ul>
-					</li>
-					<li class="person">
-						<a href="#">我的资产</a>
-						<ul>
-							<li> <a href="../my_assets/coupon.jsp">优惠券 </a></li>
-							<li> <a href="../my_assets/bonus.jsp">红包</a></li>
-							<li> <a href="../my_assets/bill.jsp">账单明细</a></li>
-						</ul>
-					</li>
 
-					<li class="person">
-						<a href="#">我的小窝</a>
-						<ul>
-							<li> <a href="../my_nest/collection.jsp">收藏</a></li>
-							<li> <a href="../my_nest/foot.jsp">足迹</a></li>
-							<li> <a href="../my_nest/comment.jsp">评价</a></li>
-							<li> <a href="../my_nest/news.jsp">消息</a></li>
-						</ul>
-					</li>
 
-				</ul>
+			<jsp:include page="../left/left.jsp">
+				<jsp:param name="menu" value="orderinfo"/>
+			</jsp:include>
 
-			</aside>
 		</div>
 
 	</body>
