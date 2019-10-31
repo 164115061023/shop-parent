@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -16,13 +17,14 @@
 
     <link rel="stylesheet" href="/static/css/dlstyle.css" type="text/css">
 
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
 
 </head>
 
 <body>
 
 <div class="login-boxtitle">
-    <a href="home.html"><img alt="logo" src="/static/images/logobig.png"/></a>
+    <a href="/main/home"><img alt="logo" src="/static/images/logobig.png"/></a>
 </div>
 
 <div class="login-banner">
@@ -35,27 +37,32 @@
             <div class="clear"></div>
 
             <div class="login-form">
-                <form action="/user/tologin" method="post">
+                <form class="layui-form" action="/user/tologin" style="height:140px">
                     <div class="user-name">
                         <label for="user"><i class="am-icon-user"></i></label>
-                        <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+                        <input type="text" class="username" lay-verify="required||phone" name="username" id="user" placeholder="邮箱/手机/用户名" lay-verType="tips">
                     </div>
-                    <div class="user-pass">
+                    <div class="user-pass" style="height:25px">
                         <label for="password"><i class="am-icon-lock"></i></label>
-                        <input type="password" name="" id="password" placeholder="请输入密码">
+                        <input type="password" class="password" lay-verify="pass" name="password" id="password" placeholder="请输入6~16位密码"  lay-verType="tips">
                     </div>
-                </form>
-            </div>
 
+                    <div class="am-cf" style="height: 52px;line-height:72px;background-color:#f8f8f8;">
+                        <input type="submit" lay-submit name="" value="登 录"  class="am-btn am-btn-primary am-btn-sm">
+                    </div>
+
+                </form>
+
+            </div>
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
                 <a href="#" class="am-fr">忘记密码</a>
-                <a href="register.html" class="zcnext am-fr am-btn-default">注册</a>
+                <a href="/user/register" class="zcnext am-fr am-btn-default">注册</a>
                 <br/>
             </div>
-            <div class="am-cf">
-                <input id="submit" type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
-            </div>
+           <%-- <div class="am-cf">
+                <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm submit">
+            </div>--%>
             <div class="partner">
                 <h3>合作账号</h3>
                 <div class="am-btn-group">
@@ -93,13 +100,36 @@
         </p>
     </div>
 </div>
-</body>
+<h1>${param.code == '200'}</h1>
+<%--<script src="/static/jquery-3.4.1.min.js"></script>--%>
+<script src="/static/layui/layui.js"></script>
+<script>
 
-<script src="/static/js/jquery-1.7.2.min.js">
 
+    layui.use(['form','layer'], function () {
+        var form = layui.form;
+        var layer = layui.layer;
+        //自定义验证规则
+        form.verify({
+            pass: [
+                /^[\S]{6,16}$/
+                ,'密码必须6到16位，且不能出现空格'
+            ]
+        });
+
+
+        <c:if test="${param.code == '200'}">
+            layer.msg("用户名或密码错误",{
+                icon:5
+                ,offset:['32%', '63%']
+            });
+        </c:if>
+
+    });
 
 
 </script>
+</body>
 
 
 </html>
