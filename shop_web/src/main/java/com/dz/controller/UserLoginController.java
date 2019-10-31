@@ -56,7 +56,6 @@ public class UserLoginController {
 
         System.out.println(username+" "+password1);
 
-
         return "user/register";
     }
 

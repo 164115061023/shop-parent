@@ -22,17 +22,7 @@ public class PersonaldataController  {
 
     //跳转到个人信息页面
     @RequestMapping("/information")
-    public String information(HttpServletRequest request, Model model) {
-        // UserLogin userLogin = new UserLogin();
-        String username = request.getParameter("username");
-        userLoginService.findUserNameById(1);
-        model.addAttribute("username", username);
-        return "/person/personaldata/information";
-    }
-    //跳转到个人信息页面
-    @RequestMapping("/information")
-    public String information(){
-
+    public String information() {
         return "/person/personaldata/information";
     }
     //跳转到安全设置页面
@@ -100,12 +90,4 @@ public class PersonaldataController  {
     }
 
 
-    //修改个人信息
-    @RequestMapping("/changePersonInfo")
-    public String changePersonInfo(){
-        UserMessage userMessage = new UserMessage();
-
-
-        return "/person/personaldata/information";
-    }
 }
