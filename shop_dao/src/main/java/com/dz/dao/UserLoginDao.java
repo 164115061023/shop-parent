@@ -12,7 +12,7 @@ public interface UserLoginDao {
 
 
     @Select("select username from user_login where id=#{id}")
-    UserLogin findById(Integer id);
+    UserLogin findUserNameById(Integer id);
 
 
     @Select("select * from user_login where username=#{username}")

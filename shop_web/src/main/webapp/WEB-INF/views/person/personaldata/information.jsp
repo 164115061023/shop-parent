@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -109,7 +110,7 @@
 							<p class="am-form-help">头像</p>
 
 							<div class="info-m">
-								<div><b>用户名：<i>小叮当</i></b></div>
+								<div><b>用户名：<i>${userMessage.name}</i></b></div>
 								<div class="u-level">
 									<span class="rank r2">
 							             <s class="vip1"></s><a class="classes" href="#">铜牌会员</a>
@@ -126,13 +127,13 @@
 
 						<!--个人信息 -->
 						<div class="info-main">
-							<form class="am-form am-form-horizontal">
+							<form class="am-form am-form-horizontal" action="/person/personaldata/update" method="post">
 
 								<div class="am-form-group">
 									<label for="user-name2" class="am-form-label">昵称</label>
 									<div class="am-form-content">
 
-										<input type="text" id="user-name2" name="{{name}}" placeholder="nickname">
+										<input type="text" id="user-name2" name="name" value="${userMessage.name}" placeholder="nickname">
 
 
 
@@ -144,7 +145,8 @@
 									<label for="user-name1" class="am-form-label">姓名</label>
 									<div class="am-form-content">
 
-										<input type="text" id="user-name1" name="username" value="${requestScope.username.username}" placeholder="name">
+										<input type="text" id="user-name1" name="username" value="${userLogin.username}" placeholder="name">
+										<input type="hidden" name="userLoginId" value="${userMessage.userLoginId}">
 
 
 
@@ -156,13 +158,13 @@
 									<label class="am-form-label">性别</label>
 									<div class="am-form-content sex">
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" value="male" data-am-ucheck> 男
+											<input type="radio" name="radio10" class="m" value="male" data-am-ucheck> 男
 										</label>
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" value="female" data-am-ucheck> 女
+											<input type="radio" name="radio10" class="fm" value="female" data-am-ucheck> 女
 										</label>
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" value="secret" data-am-ucheck> 保密
+											<input type="radio" name="radio10" class="bm" value="secret" data-am-ucheck> 保密
 										</label>
 									</div>
 								</div>
@@ -171,22 +173,30 @@
 									<label id="user-birth" class="am-form-label">生日</label>
 									<div class="am-form-content birth">
 										<div class="birth-select">
-											<select data-am-selected>
-												<option value="a">2015</option>
-												<option value="b">1987</option>
+                                           <%-- <select name="year" οnchange="selectYear(this.value)">
+                                                <option value=""></option>
+                                            </select>--%>
+											<select data-am-selected >
+												<option value=""></option>
 											</select>
 											<em>年</em>
 										</div>
 										<div class="birth-select2">
+                                            <%--<select name="month" οnchange="selectMonth(this.value)">
+                                                <option value=""></option>
+                                            </select>--%>
 											<select data-am-selected>
-												<option value="a">12</option>
-												<option value="b">8</option>
+												<option value=""></option>
+
 											</select>
 											<em>月</em></div>
 										<div class="birth-select2">
+                                            <%--<select name="day">
+                                                <option value=""></option>
+                                            </select>--%>
 											<select data-am-selected>
-												<option value="a">21</option>
-												<option value="b">23</option>
+												<option value=""></option>
+
 											</select>
 											<em>日</em></div>
 									</div>
@@ -195,48 +205,52 @@
 								<div class="am-form-group">
 									<label for="user-phone" class="am-form-label">电话</label>
 									<div class="am-form-content">
-										<input id="user-phone" placeholder="telephonenumber" type="tel">
+										<input id="user-phone" placeholder="telephonenumber" name="tel" value="${userMessage.tel}" type="tel">
 
 									</div>
 								</div>
-								<div class="am-form-group">
-									<label for="user-email" class="am-form-label">电子邮件</label>
-									<div class="am-form-content">
-										<input id="user-email" placeholder="Email" type="email">
+                                <div class="am-form-group">
+                                    <label for="user-email" class="am-form-label">电子邮件</label>
+                                    <div class="am-form-content">
+                                        <input id="user-email" placeholder="Email" name="email" value="${userMessage.email}" type="email">
 
-									</div>
-								</div>
-								<div class="am-form-group address">
-									<label id="user-address" class="am-form-label">收货地址</label>
-									<div class="am-form-content address">
-										<a href="address.jsp">
-											<p class="new-mu_l2cw">
-												<span class="province">湖北</span>省
-												<span class="city">武汉</span>市
-												<span class="dist">洪山</span>区
-												<span class="street">雄楚大道666号(中南财经政法大学)</span>
-												<span class="am-icon-angle-right"></span>
-											</p>
-										</a>
+                                    </div>
+                                </div>
 
-									</div>
-								</div>
-								<div class="am-form-group safety">
-									<label id="user-safety" class="am-form-label">账号安全</label>
-									<div class="am-form-content safety">
-										<a href="/person/personaldata/safety">
+                                <div class="am-form-group address">
+                                    <label id="user-address" class="am-form-label">收货地址</label>
+                                    <div class="am-form-content address">
+                                        <a href="address.jsp">
+                                            <p class="new-mu_l2cw">
+                                                <span class="province">湖北</span>省
+                                                <span class="city">武汉</span>市
+                                                <span class="dist">洪山</span>区
+                                                <span class="street">雄楚大道666号(中南财经政法大学)</span>
+                                                <span class="am-icon-angle-right"></span>
+                                            </p>
+                                        </a>
 
-											<span class="am-icon-angle-right"></span>
+                                    </div>
+                                </div>
+                                <div class="am-form-group safety">
+                                    <label id="user-safety" class="am-form-label">账号安全</label>
+                                    <div class="am-form-content safety">
+                                        <a href="/person/personaldata/safety">
 
-										</a>
+                                            <span class="am-icon-angle-right"></span>
 
-									</div>
-								</div>
+                                        </a>
+
+                                    </div>
+                                </div>
+
 								<div class="info-btn">
-									<div class="am-btn am-btn-danger">保存修改</div>
+									<%--<div class="am-btn am-btn-danger">保存修改</div>--%>
+										<input type="submit" value="保存修改">
 								</div>
 
 							</form>
+
 						</div>
 
 					</div>
@@ -272,9 +286,84 @@
 			</jsp:include>
 		</div>
 
-		<script>
-			$(function () {
-			});
+
+        <script>
+
+            /*function dateStart()
+
+            {//月份对应天数
+                MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+                //给年下拉框赋内容
+                var y  = new Date().getFullYear();
+                for (var i = (y-50); i < (y+50); i++) //以今年为准，前50年，后50年
+                    document.date.year.options.add(new Option(" "+ i +" 年", i));
+
+                //给月下拉框赋内容
+                for (var i = 1; i < 13; i++)
+                    document.date.month.options.add(new Option(" " + i + " 月", i));
+
+                document.date.year.value = y;
+                document.date.month.value = new Date().getMonth() + 1;
+                var n = MonHead[new Date().getMonth()];
+                if (  new Date().getMonth() ==1 && IsPinYear(yearvalue)  )
+                    n++;
+                writeDay(n); //赋日期下拉框
+                document.date.day.value = new Date().getDate();
+            }
+
+            if(document.attachEvent)
+                window.attachEvent("onload", dateStart);
+            else
+                window.addEventListener('load', dateStart, false);
+
+            function selectYear(str) //年发生变化时日期发生变化(主要是判断闰平年)
+            {
+                var monthvalue = document.date.month.options[document.date.month.selectedIndex].value;
+                if (monthvalue == "")
+                {
+                    var e = document.date.day;
+                    optionsClear(e);
+                    return;
+                }
+                var n = MonHead[monthvalue - 1];
+                if (  monthvalue ==2 && IsPinYear(str)  )
+                    n++;
+                writeDay(n);
+            }
+
+            function selectMonth(str)   //月发生变化时日期联动
+            {
+                var yearvalue = document.date.year.options[document.date.year.selectedIndex].value;
+                if (yearvalue == "")
+                {
+                    var e = document.date.day;
+                    optionsClear(e);
+                    return;
+                }
+                var n = MonHead[str - 1];
+                if (  str ==2 && IsPinYear(yearvalue)  )
+                    n++;
+                writeDay(n);
+            }
+
+            function writeDay(n)   //据条件写日期的下拉框
+            {
+                var e = document.date.day; optionsClear(e);
+                for (var i=1; i<(n+1); i++)
+                    e.options.add(new Option(" "+ i + " 日", i));
+            }
+
+            function IsPinYear(year)//判断是否闰平年
+            {
+                return(  0 == year%4 && ( year%100 !=0 || year%400 == 0 )  );
+            }
+
+            function optionsClear(e)
+            {
+                e.options.length = 1;
+            }*/
+
 		</script>
 	</body>
 

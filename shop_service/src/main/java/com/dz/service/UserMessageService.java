@@ -11,14 +11,14 @@ public class UserMessageService {
     @Autowired
     private UserMessageDao userMessageDao;
 
-    public UserMessage changeInfoById(Integer userLoginId){
-        return userMessageDao.updateInfo(userLoginId);
+   public void updateInfo(UserMessage userMessage){
+       userMessageDao.updateInfo(userMessage);
+   }
+
+    public UserMessage findByUid(Integer uid){
+        return userMessageDao.findByUid(uid);
     }
-    public void findByUid(Integer uid){
-        userMessageDao.findByUid(uid);
-    }
-    public void findById(Integer id){
-        userMessageDao.findById(id);
-    }
+
+
 
 }

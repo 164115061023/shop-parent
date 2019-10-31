@@ -17,7 +17,7 @@ public class UserLoginService {
     private UserLoginDao userLoginDao;
 
     public UserLogin findUserNameById(Integer id) {
-        return userLoginDao.findById(id);
+        return userLoginDao.findUserNameById(id);
     }
 
     public UserLogin findByLoginName(String username) {
