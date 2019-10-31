@@ -1,6 +1,7 @@
 package com.dz.controller;
 
-import com.dz.pojo.User;
+
+import com.dz.pojo.UserLogin;
 
 import com.dz.service.UserLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +32,15 @@ public class UserLoginController {
     }*/
     //跳转到注册页面
     @RequestMapping("/register")
-    public String register(){
+    public String register() {
         return "user/register";
+    }
 
 
     @RequestMapping("/tologin")
-    public String tologin(String username, String password, Model model){
-        User user = userLoginService.findByLoginName(username);
-        if(user!=null && user.getPassword().equals(password)){
+    public String tologin(String username, String password,Model model){
+        UserLogin userLogin = userLoginService.findByLoginName(username);
+        if(userLogin!=null && userLogin.getPassword().equals(password)){
             return "redirect:/main/home";
         }else{
             model.addAttribute("code","200");
@@ -47,10 +49,6 @@ public class UserLoginController {
 
     }
 
-    @RequestMapping("/register")
-    public String register(){
-        return "user/register";
-    }
 
 
     @RequestMapping("/toregister")
