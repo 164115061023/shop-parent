@@ -12,22 +12,30 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
-    <link rel="stylesheet" href="../AmazeUI-2.4.2/assets/css/amazeui.min.css"/>
-    <link href="../css/dlstyle.css" rel="stylesheet" type="text/css">
-    <script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-    <script src="../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+
+    <link rel="stylesheet" href="/static/AmazeUI-2.4.2/assets/css/amazeui.min.css"/>
+    <link href="/static/css/dlstyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+
+    <script src="/static/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+    <script src="/static/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+
+
+
 
 </head>
 
 <body>
 
 <div class="login-boxtitle">
-    <a href="home/demo.html"><img alt="" src="../images/logobig.png"/></a>
+    <a href=""><img alt="" src="/static/images/logobig.png"/></a>
+
 </div>
 
 <div class="res-banner">
     <div class="res-main">
-        <div class="login-banner-bg"><span></span><img src="../images/big.jpg"/></div>
+
+        <div class="login-banner-bg"><span></span><img src="/static/images/big.jpg"/></div>
         <div class="login-box">
 
             <div class="am-tabs" id="doc-my-tabs">
@@ -38,30 +46,36 @@
 
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active">
-                        <form method="post">
+
+                        <form method="post" class="layui-form" action="/user/toregister" id="form1">
 
                             <div class="user-email">
                                 <label for="email"><i class="am-icon-envelope-o"></i></label>
-                                <input type="email" name="" id="email" placeholder="请输入邮箱账号">
+                                <input type="email" name="username" lay-verify="required|email" id="email" placeholder="请输入邮箱账号">
                             </div>
                             <div class="user-pass">
                                 <label for="password"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="" id="password" placeholder="设置密码">
+                                <input type="password" name="password1" lay-verify="pass" id="password" placeholder="设置密码">
                             </div>
                             <div class="user-pass">
                                 <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="" id="passwordRepeat" placeholder="确认密码">
+                                <input type="password" name="password2" lay-verify="pass" id="passwordRepeat" placeholder="确认密码">
                             </div>
 
-                        </form>
+                                <%--<input name="testchk" id="reader-me4" type="checkbox" style="zoom: 1%"> 点击表示您同意商城《服务协议》
+                            --%>
+                            <input id="formOne" style="display: none" type="submit" lay-submit lay-filter="fOne" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+
 
                         <div class="login-links">
                             <label for="reader-me">
-                                <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+
+                                <input class="form1" form="form1" id="reader-me" type="checkbox" lay-filter="checkbox1"> 点击表示您同意商城《服务协议》
                             </label>
                         </div>
                         <div class="am-cf">
-                            <input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+                            <input id="submit1" type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+
                         </div>
 
                     </div>
@@ -81,16 +95,18 @@
                             </div>
                             <div class="user-pass">
                                 <label for="password"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="" id="password" placeholder="设置密码">
+
+                                <input type="password" name="" id="password2" placeholder="设置密码">
                             </div>
                             <div class="user-pass">
                                 <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="" id="passwordRepeat" placeholder="确认密码">
+                                <input type="password" name="" id="passwordRepeat2" placeholder="确认密码">
                             </div>
                         </form>
+
                         <div class="login-links">
                             <label for="reader-me">
-                                <input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+                                <input id="reader-me2" type="checkbox"> 点击表示您同意商城《服务协议》
                             </label>
                         </div>
                         x`
@@ -137,6 +153,62 @@
         </div>
     </div>
 </div>
+
+
+
+<script src="/static/layui/layui.js"></script>
+<script>
+
+
+
+    $(function () {
+        $("#submit1").click(function () {
+            $('#formOne').trigger("click");
+        })
+    });
+
+
+    layui.use(['form','layer', 'laydate'], function () {
+        var form = layui.form;
+
+        var testArr = [];
+        //自定义验证规则
+        form.verify({
+            pass: [
+                /^[\S]{6,16}$/
+                ,'密码必须6到16位，且不能出现空格'
+            ]
+        });
+
+
+        form.on('submit(fOne)', function(data){		// 根据选中的复选框对应的值存成数组判断数组长度代替验证
+
+            console.log($('.form1').prop('checked'));
+
+
+            if($('.form1').prop('checked')==true){
+                return true;
+            }else{
+                layer.msg('请阅读服务协议并勾选',{
+                    time: 2000
+                    ,offset:['32%', '63%']
+                });
+                return false;
+            }
+
+
+
+        });
+
+
+    });
+
+
+
+</script>
+
+
+
 </body>
 
 </html>
