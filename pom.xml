@@ -13,7 +13,6 @@
         <module>shop_service</module>
         <module>shop_dao</module>
         <module>shop_web</module>
-        <module>shop_shiro</module>
     </modules>
 
     <dependencies>
@@ -143,6 +142,14 @@
         </dependency>
 
         <!--spring end-->
+
+        <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+
 
     </dependencies>
 
