@@ -5,9 +5,11 @@ import com.dz.pojo.Activity;
 import com.dz.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -19,20 +21,23 @@ public class MynestController {
     @Autowired
     private  ActivityService activityService;
 
-
     //跳转到消息页面
-    @RequestMapping("/news")
-    public String news(HttpServletRequest request){
-        List<Activity> activitys = activityService.findAll();
 
-        request.setAttribute("activityList",activitys);
+    @RequestMapping("/news")
+    public String news(Model model){
+        model.addAttribute("activityList", activityService.findAll());
         return "/person/mynest/news";
     }
 
 
     //跳转到详细信息页面
     @RequestMapping("/blog")
-    public String blog(){
+    public String blog(Model model,@RequestParam(value = "blog")Integer activityId){
+
+        model.addAttribute("activity",activityService.findById(activityId));
+        Activity activity = activityService.findById(activityId);
+        String[] p = activity.getContent().split("。");
+        model.addAttribute("p",p);
         return "/person/mynest/blog";
     }
     //跳转到收藏页面

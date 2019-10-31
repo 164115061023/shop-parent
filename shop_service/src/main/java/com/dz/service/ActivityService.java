@@ -12,10 +12,13 @@ public class ActivityService {
 
     @Autowired
     private ActivityDao activityDao;
-
+    //查找所有活动信息
     public List<Activity> findAll() {
         return activityDao.findAll();
     }
-
+    //通过id查找消息
+    public Activity findById(Integer id){
+        return activityDao.findById(id);
+    }
 
 }
