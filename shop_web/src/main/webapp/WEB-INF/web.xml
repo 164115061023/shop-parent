@@ -26,7 +26,9 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
-  
+
+
+
   <!--<filter>
     <filter-name>shiroFilter</filter-name>
     <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -34,7 +36,12 @@
   <filter-mapping>
     <filter-name>shiroFilter</filter-name>
     <url-pattern>/*</url-pattern>
-  </filter-mapping>-->
+<<<<<<< HEAD
+  </filter-mapping>
+-->
+
+
+
 
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

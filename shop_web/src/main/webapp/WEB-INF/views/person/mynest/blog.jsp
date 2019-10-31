@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -88,15 +89,22 @@
   <div class="am-u-md-9">
     <article class="blog-main">
       <h3 class="am-article-title blog-title">
-        <a href="#">×张毛爷爷，搞定靓妆容</a>
+        <a href="#">${requestScope.activity.activityTitle}</a>
       </h3>
-      <h4 class="am-article-meta blog-meta">2014-06-17 09:52</h4>
+      <h4 class="am-article-meta blog-meta">${requestScope.activity.createTime}</h4>
 
       <div class="am-g blog-content">
         <div class="am-u-sm-12">
-          <p>年轻的妹子爱美丽，这是人之常情，但是没有足够的经济实力，面对昂贵奢华的护肤品难免囊中羞涩。不过不用担心，年轻的资本就是，不需要投入太多，却依然有俏丽的脸蛋儿~今天小编就给妹子们准备了炙手可热的百元护肤大礼包，看看有没有自己需要的吧！</p>
-          
-          <strong class="blog-tit"><p>一张毛爷爷<span>丨</span>基础护肤</p></strong>
+            <c:forEach var="p" items="${requestScope.p}">
+                <p>${p}。</p>
+            </c:forEach>
+            <div class="Row">
+                <a class="" href="去往商品页面" type="">     <%--todo--%>
+                  <li><img src="/static/images/blog01.jpg"/></li>
+                </a>
+            </div>
+
+        <%--  <strong class="blog-tit"><p>一张毛爷爷<span>丨</span>基础护肤</p></strong>
           <div class="Row">
           	<li><img src="/static/images/blog01.jpg"/></li>
           	<li><img src="/static/images/blog02.jpg"/></li>
@@ -125,7 +133,7 @@
           
            <p>初春空气干燥，洗手洗澡后不马上涂点润肤乳，皮肤就会不听话得干燥粗糙起来，着实让爱美的妹子们操碎了心。春天不光是万物复苏的季节，还是万物需要滋养的季节，而且要从头到脚得滋养。</p>
           
-
+--%>
         </div>
   
       </div>

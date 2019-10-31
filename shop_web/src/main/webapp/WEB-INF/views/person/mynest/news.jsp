@@ -1,7 +1,5 @@
-
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -114,15 +112,16 @@
 
 							<div class="am-tabs-bd">
 								<div class="am-tab-panel am-fade am-in am-active" id="tab1">
-
-
-=======
-									request:${requestScope.activityList}
 									<c:forEach items="${requestScope.activityList}" var="activityList">
 
 									<div class="news-day">
-										<div class="goods-date" data-date="2015-12-21">
-											<span><i class="month-lite">12</i>.<i class="day-lite">21</i>	<i class="date-desc">今天</i></span>
+										<div class="goods-date" data-date="${activityList.createTime}">
+											<span>
+												<i class="month-lite">${fn:substring(activityList.createTime,5,7)}</i>
+												.
+												<i class="day-lite">${fn:substring(activityList.createTime,8,10)}</i>
+												<i class="date-desc">今天</i>
+											</span>
 										</div>
 
 										<!--消息 -->
@@ -130,17 +129,13 @@
 											<h6 class="s-msg-bar"><span class="s-name">每日新鲜事</span></h6>
 											<div class="s-msg-content i-msg-downup-wrap">
 												<div class="i-msg-downup-con">
-													<a class="i-markRead" target="_blank" href="blog.jsp">
+													<a class="i-markRead" target="_blank" href="/person/mynest/blog?blog=${activityList.id}">
 														<img src="/static/images/TB102.jpg">
 														<p class="s-main-content">
-
-															最特色的湖北年货都在这儿 ~快来囤年货啦！
-
-															${activityList.content}
-
+															${activityList.activityTitle}
 														</p>
 														<p class="s-row s-main-content">
-															<a href="/person/mynest/blog">
+															<a href="/person/mynest/blog?blog=${activityList.id}">
 															阅读全文 <i class="am-icon-angle-right"></i>
 															</a>
 														</p>
@@ -162,7 +157,7 @@
 											<h6 class="s-msg-bar"><span class="s-name">订单已签收</span></h6>
 											<div class="s-msg-content i-msg-downup-wrap">
 												<div class="i-msg-downup-con">
-													<a class="i-markRead" target="_blank" href="/static/order/logistics.jsp">
+													<a class="i-markRead" target="_blank" href="/person/order/logistics">
 													<div class="m-item">	
 														<div class="item-pic">															
 																	<img src="/static/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg">
