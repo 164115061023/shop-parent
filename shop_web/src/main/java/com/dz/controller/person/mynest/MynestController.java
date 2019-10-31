@@ -1,5 +1,6 @@
 package com.dz.controller.person.mynest;
 
+
 import com.dz.pojo.Activity;
 import com.dz.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class MynestController {
 
     @Autowired
     private  ActivityService activityService;
+
 
     //跳转到消息页面
     @RequestMapping("/news")

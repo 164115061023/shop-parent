@@ -9,6 +9,7 @@ public class BrandInfo {
     private String telephone;//电话
 
 
+
     public Integer getId() {
         return id;
     }
@@ -25,12 +26,13 @@ public class BrandInfo {
         this.brandName = brandName;
     }
 
+
     public String getBrandLogo() {
         return brandLogo;
     }
 
-    public void setBrandLogo(String brandLogo) {
-        this.brandLogo = brandLogo;
+    public void setBrandLogo(String brandLoge) {
+        this.brandLogo = brandLoge;
     }
 
     public String getBrandDesc() {

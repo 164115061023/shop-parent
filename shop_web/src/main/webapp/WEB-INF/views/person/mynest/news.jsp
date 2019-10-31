@@ -1,4 +1,7 @@
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -111,7 +114,15 @@
 
 							<div class="am-tabs-bd">
 								<div class="am-tab-panel am-fade am-in am-active" id="tab1">
+<<<<<<< HEAD
+=======
+
+
+=======
+									request:${requestScope.activityList}
+>>>>>>> 25e91bcaf2b5eda9f20c23f490a93cf2b3e56b41
 									<c:forEach items="${requestScope.activityList}" var="activityList">
+
 									<div class="news-day">
 										<div class="goods-date" data-date="${activityList.createTime}">
 											<span><i class="month-lite">12</i>.<i class="day-lite">21</i>	<i class="date-desc">今天</i></span>
@@ -125,7 +136,11 @@
 													<a class="i-markRead" target="_blank" href="blog.jsp">
 														<img src="/static/images/TB102.jpg">
 														<p class="s-main-content">
+
 															${activityList.activityTitle}
+
+
+
 														</p>
 														<p class="s-row s-main-content">
 															<a href="/person/mynest/blog">
@@ -138,7 +153,10 @@
 											<a class="i-btn-forkout" href="#"><i class="am-icon-close am-icon-fw"></i></a>
 										</div>
 									</div>
+
+
 									</c:forEach>
+
 								</div>
 
 								<div class="am-tab-panel am-fade" id="tab2">

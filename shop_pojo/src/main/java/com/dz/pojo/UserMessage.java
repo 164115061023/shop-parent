@@ -10,8 +10,6 @@ public class UserMessage {
     private Integer userLoginId;//会员登录表Id
     //一对一关系
     private UserLogin userLogin;
-    private UserLevel userLevel;
-
 
     public Integer getId() {
         return id;
@@ -75,13 +73,5 @@ public class UserMessage {
 
     public void setUserLogin(UserLogin userLogin) {
         this.userLogin = userLogin;
-    }
-
-    public UserLevel getUserLevel() {
-        return userLevel;
-    }
-
-    public void setUserLevel(UserLevel userLevel) {
-        this.userLevel = userLevel;
     }
 }

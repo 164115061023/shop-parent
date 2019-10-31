@@ -8,9 +8,6 @@ public class ProductPic {
     private String path;//路径
     private Integer picOrder;//图片顺序
 
-
-
-
     public Integer getId() {
         return id;
     }

@@ -14,4 +14,11 @@ public class UserMessageService {
     public UserMessage changeInfoById(Integer userLoginId){
         return userMessageDao.updateInfo(userLoginId);
     }
+    public void findByUid(Integer uid){
+        userMessageDao.findByUid(uid);
+    }
+    public void findById(Integer id){
+        userMessageDao.findById(id);
+    }
+
 }

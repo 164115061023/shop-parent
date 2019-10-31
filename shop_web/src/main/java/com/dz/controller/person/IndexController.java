@@ -11,7 +11,6 @@ public class IndexController {
     //跳转到个人中心
     @RequestMapping("/index")
     public String persion(){
-        
         return "person/index";
     }
 
