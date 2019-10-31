@@ -114,13 +114,6 @@
 
 							<div class="am-tabs-bd">
 								<div class="am-tab-panel am-fade am-in am-active" id="tab1">
-<<<<<<< HEAD
-=======
-
-
-=======
-									request:${requestScope.activityList}
->>>>>>> 25e91bcaf2b5eda9f20c23f490a93cf2b3e56b41
 									<c:forEach items="${requestScope.activityList}" var="activityList">
 
 									<div class="news-day">
