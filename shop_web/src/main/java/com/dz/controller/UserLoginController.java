@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/user")
 public class UserLoginController {
 
-
     //跳转到登录页面
 
     @Autowired
@@ -26,10 +25,10 @@ public class UserLoginController {
         return "user/login";
     }
 
-    /*@RequestMapping("/main")
+    @RequestMapping("/main")
     public String main(){
         return "user/main";
-    }*/
+    }
     //跳转到注册页面
     @RequestMapping("/register")
     public String register() {
