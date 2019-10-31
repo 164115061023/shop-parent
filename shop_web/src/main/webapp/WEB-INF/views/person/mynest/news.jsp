@@ -113,7 +113,7 @@
 								<div class="am-tab-panel am-fade am-in am-active" id="tab1">
 									<c:forEach items="${requestScope.activityList}" var="activityList">
 									<div class="news-day">
-										<div class="goods-date" data-date="2015-12-21">
+										<div class="goods-date" data-date="${activityList.createTime}">
 											<span><i class="month-lite">12</i>.<i class="day-lite">21</i>	<i class="date-desc">今天</i></span>
 										</div>
 
@@ -125,7 +125,7 @@
 													<a class="i-markRead" target="_blank" href="blog.jsp">
 														<img src="/static/images/TB102.jpg">
 														<p class="s-main-content">
-															${activityList.content}
+															${activityList.title}
 														</p>
 														<p class="s-row s-main-content">
 															<a href="/person/mynest/blog">
