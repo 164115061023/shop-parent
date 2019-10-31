@@ -38,24 +38,24 @@
 
             <div class="login-form">
 
-                <form action="/home/home" method="post">
 
                 <form class="layui-form" action="/user/tologin" style="height:140px">
 
                     <div class="user-name">
                         <label for="user"><i class="am-icon-user"></i></label>
-                        <input type="text" class="username" lay-verify="required||phone" name="username" id="user" placeholder="邮箱/手机/用户名" lay-verType="tips">
+                        <input type="text" class="username" lay-verify="required||phone" name="username" id="user"
+                               placeholder="邮箱/手机/用户名" lay-verType="tips">
                     </div>
                     <div class="user-pass" style="height:25px">
                         <label for="password"><i class="am-icon-lock"></i></label>
-                        <input type="password" class="password" lay-verify="pass" name="password" id="password" placeholder="请输入6~16位密码"  lay-verType="tips">
+                        <input type="password" class="password" lay-verify="pass" name="password" id="password"
+                               placeholder="请输入6~16位密码" lay-verType="tips">
                     </div>
 
                     <div class="am-cf" style="height: 52px;line-height:72px;background-color:#f8f8f8;">
-                        <input type="submit" lay-submit name="" value="登 录"  class="am-btn am-btn-primary am-btn-sm">
+                        <input type="submit" lay-submit name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
                     </div>
 
-                </form>
                 </form>
             </div>
             <div class="login-links">
@@ -65,14 +65,12 @@
                 <br/>
             </div>
 
-            <div class="am-cf">
-                <input id="submit" type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
-            </div>
 
 
-           <%-- <div class="am-cf">
-                <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm submit">
-            </div>--%>
+
+            <%-- <div class="am-cf">
+                 <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm submit">
+             </div>--%>
 
             <div class="partner">
                 <h3>合作账号</h3>
@@ -117,23 +115,23 @@
 <script>
 
 
-    layui.use(['form','layer'], function () {
+    layui.use(['form', 'layer'], function () {
         var form = layui.form;
         var layer = layui.layer;
         //自定义验证规则
         form.verify({
             pass: [
                 /^[\S]{6,16}$/
-                ,'密码必须6到16位，且不能出现空格'
+                , '密码必须6到16位，且不能出现空格'
             ]
         });
 
 
         <c:if test="${param.code == '200'}">
-            layer.msg("用户名或密码错误",{
-                icon:5
-                ,offset:['32%', '63%']
-            });
+        layer.msg("用户名或密码错误", {
+            icon: 5
+            , offset: ['32%', '63%']
+        });
         </c:if>
 
     });
