@@ -9,9 +9,11 @@
         <module name="shop_pojo" />
         <module name="shop_service" />
         <module name="shop_dao" />
-        <module name="shop_shiro" />
         <module name="shop_web" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="shop_shiro" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

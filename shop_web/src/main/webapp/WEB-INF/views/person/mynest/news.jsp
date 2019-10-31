@@ -111,7 +111,6 @@
 
 							<div class="am-tabs-bd">
 								<div class="am-tab-panel am-fade am-in am-active" id="tab1">
-									request:${requestScope.activityList}
 									<c:forEach items="${requestScope.activityList}" var="activityList">
 									<div class="news-day">
 										<div class="goods-date" data-date="2015-12-21">
