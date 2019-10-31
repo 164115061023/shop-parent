@@ -2,6 +2,7 @@ package com.dz.controller.person.mynest;
 
 import com.dz.pojo.Activity;
 import com.dz.service.ActivityService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,14 +15,15 @@ import java.util.List;
 //我的小窝
 public class MynestController {
 
+    @Autowired
+    private  ActivityService activityService;
 
     //跳转到消息页面
     @RequestMapping("/news")
     public String news(HttpServletRequest request){
-        ActivityService activityService = new ActivityService();
         List<Activity> activitys = activityService.findAll();
-        System.out.println(activitys);
-        //request.setAttribute("activityList",activitys);
+
+        request.setAttribute("activityList",activitys);
         return "/person/mynest/news";
     }
 
