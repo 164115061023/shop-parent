@@ -12,6 +12,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
 
+
     <link rel="stylesheet" href="/static/AmazeUI-2.4.2/assets/css/amazeui.min.css"/>
     <link href="/static/css/dlstyle.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/static/layui/css/layui.css">
@@ -21,16 +22,19 @@
 
 
 
+
 </head>
 
 <body>
 
 <div class="login-boxtitle">
     <a href=""><img alt="" src="/static/images/logobig.png"/></a>
+
 </div>
 
 <div class="res-banner">
     <div class="res-main">
+
         <div class="login-banner-bg"><span></span><img src="/static/images/big.jpg"/></div>
         <div class="login-box">
 
@@ -42,6 +46,7 @@
 
                 <div class="am-tabs-bd">
                     <div class="am-tab-panel am-active">
+
                         <form method="post" class="layui-form" action="/user/toregister" id="form1">
 
                             <div class="user-email">
@@ -61,15 +66,16 @@
                             --%>
                             <input id="formOne" style="display: none" type="submit" lay-submit lay-filter="fOne" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
 
-                        </form>
 
                         <div class="login-links">
                             <label for="reader-me">
+
                                 <input class="form1" form="form1" id="reader-me" type="checkbox" lay-filter="checkbox1"> 点击表示您同意商城《服务协议》
                             </label>
                         </div>
                         <div class="am-cf">
                             <input id="submit1" type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+
                         </div>
 
                     </div>
@@ -89,6 +95,7 @@
                             </div>
                             <div class="user-pass">
                                 <label for="password"><i class="am-icon-lock"></i></label>
+
                                 <input type="password" name="" id="password2" placeholder="设置密码">
                             </div>
                             <div class="user-pass">
@@ -146,6 +153,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script src="/static/layui/layui.js"></script>
