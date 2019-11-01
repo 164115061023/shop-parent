@@ -5,7 +5,7 @@ import java.util.List;
 public class Product {
     //产品信息
     private Integer id;
-    private String productCore;//产品核心
+    private String productPack;//产品包装
     private String productName;//产品名称
     private Integer typeId;//产品类别
     private Integer supplierId;//供应商id
@@ -29,6 +29,10 @@ public class Product {
 
     //品牌一对一
     //供应商  一对多  todo
+
+    //商品多对一 订单
+    private OrderMaster orderMaster;
+
     //产品评论一对多
     private List<ProductComment> productCommentList;
     //购物券  一对一
@@ -43,12 +47,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getProductCore() {
-        return productCore;
+    public String getProductPack() {
+        return productPack;
     }
 
-    public void setProductCore(String productCore) {
-        this.productCore = productCore;
+    public void setProductPack(String productPack) {
+        this.productPack = productPack;
     }
 
     public String getProductName() {
@@ -201,5 +205,13 @@ public class Product {
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
+    }
+
+    public OrderMaster getOrderMaster() {
+        return orderMaster;
+    }
+
+    public void setOrderMaster(OrderMaster orderMaster) {
+        this.orderMaster = orderMaster;
     }
 }

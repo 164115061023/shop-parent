@@ -1,7 +1,7 @@
 package com.dz.pojo;
 
 public class ShoppingCart {
-    //购物券
+    //购物车
     private Integer id;
     private Integer userLoginId;//userid
     private Integer productId;//商品id
