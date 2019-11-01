@@ -13,6 +13,5 @@ public interface UserMessageDao {
     @Select("select id,name,sex,tel,email,birthday,user_login_id as userLoginId from user_message where user_Login_Id=#{id}")
    UserMessage findByUid(Integer userLoginId);
 
-    //查询信息显示
 
 }

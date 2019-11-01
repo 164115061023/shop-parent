@@ -37,7 +37,9 @@ public class PersonaldataController  {
     }
     //跳转到安全设置页面
     @RequestMapping("/safety")
-    public String safety(){
+    public String safety(Model model){
+        UserMessage userMessage = userMessageService.findByUid(1);
+        model.addAttribute("userMessage",userMessage);
         return "/person/personaldata/safety";
     }
     //跳转到收获地址页面
@@ -47,7 +49,9 @@ public class PersonaldataController  {
     }
     //跳转到修改密码页面
     @RequestMapping("/password")
-    public String changepassword(){
+    public String changepassword(Model model){
+        UserLogin userLogin = userLoginService.findPwdById(1);
+        model.addAttribute("userLogin",userLogin);
         return "/person/personaldata/password";
     }
     //跳转到支付密码页面
@@ -83,6 +87,11 @@ public class PersonaldataController  {
        userMessageService.updateInfo(userMessage);
        return "redirect:/person/personaldata/information";
     }
-
+    //修改密码
+    @RequestMapping(value = "/updatePwd",method = RequestMethod.POST)
+    public String updatePwd(Integer id){
+        userLoginService.updatePwd(1);
+        return "redirect:/person/personaldata/password";
+    }
 
 }

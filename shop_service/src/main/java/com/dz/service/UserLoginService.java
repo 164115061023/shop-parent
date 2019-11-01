@@ -25,4 +25,11 @@ public class UserLoginService {
         return userLoginDao.findByLoginName(username);
 
     }
+    public UserLogin findPwdById(Integer id){
+        return userLoginDao.findPwdById(id);
+    }
+    //通过id修改登录者密码
+    public void updatePwd(Integer id){
+        userLoginDao.updatePassword(id);
+    }
 }
