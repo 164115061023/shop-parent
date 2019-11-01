@@ -25,4 +25,8 @@ public class UserLoginService {
         return userLoginDao.findByLoginName(username);
 
     }
+
+    public void save(String username, String password) {
+        userLoginDao.save(username,password);
+    }
 }

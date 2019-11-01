@@ -43,7 +43,7 @@
 
                     <div class="user-name">
                         <label for="user"><i class="am-icon-user"></i></label>
-                        <input type="text" class="username" lay-verify="required||phone" name="username" id="user"
+                        <input type="text" class="username" lay-verify="required" name="username" id="user"
                                placeholder="邮箱/手机/用户名" lay-verType="tips">
                     </div>
                     <div class="user-pass" style="height:25px">
@@ -109,7 +109,7 @@
         </p>
     </div>
 </div>
-<h1>${param.code == '200'}</h1>
+
 <%--<script src="/static/jquery-3.4.1.min.js"></script>--%>
 <script src="/static/layui/layui.js"></script>
 <script>
