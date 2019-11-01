@@ -1,5 +1,7 @@
 package com.dz.pojo;
 
+import java.util.List;
+
 public class OrderMaster {
     //订单
     private Integer id;
@@ -26,8 +28,9 @@ public class OrderMaster {
     //购物券 一对一
     private ShoppingCart shoppingCart;
     //售后 一对一
-    private SafterSale safterSale;
-
+    private AfterSale afterSale;
+    //商品  多对订单一
+    public List<Product> productList;
 
 
     public Integer getId() {
@@ -175,11 +178,19 @@ public class OrderMaster {
         this.shoppingCart = shoppingCart;
     }
 
-    public SafterSale getSafterSale() {
-        return safterSale;
+    public AfterSale getAfterSale() {
+        return afterSale;
     }
 
-    public void setSafterSale(SafterSale safterSale) {
-        this.safterSale = safterSale;
+    public void setAfterSale(AfterSale afterSale) {
+        this.afterSale = afterSale;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 }

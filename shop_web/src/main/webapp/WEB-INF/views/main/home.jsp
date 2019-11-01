@@ -46,7 +46,7 @@
                 <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
             </div>
             <div class="topMessage my-shangcheng">
-                <div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+                <div class="menu-hd MyShangcheng"><a href="/person/index" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
                 </div>
             </div>
             <div class="topMessage mini-cart">
@@ -781,7 +781,7 @@
                 </a>
             </div>
             <div class="am-u-sm-3">
-                <a href="#"><img src="/static/images/mansmall.jpg"/>
+                <a href="/person/index"><img src="/static/images/mansmall.jpg"/>
                     <div class="title">个人中心</div>
                 </a>
             </div>
@@ -866,8 +866,7 @@
         <!--今日推荐 -->
 
         <div class="am-g am-g-fixed recommendation">
-            <div class="clock am-u-sm-3"
-            ">
+            <div class="clock am-u-sm-3">
             <img src="/static/images/2016.png "></img>
             <p>今日<br>推荐</p>
         </div>

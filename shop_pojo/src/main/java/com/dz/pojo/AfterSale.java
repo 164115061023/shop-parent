@@ -1,6 +1,6 @@
 package com.dz.pojo;
 
-public class SafterSale {
+public class AfterSale {
     //售后表
     private Integer id;
     private Integer orderMasterId; // 订单编号id

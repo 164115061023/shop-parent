@@ -5,7 +5,7 @@ import java.util.List;
 public class Product {
     //产品信息
     private Integer id;
-    private String productCore;//产品核心
+    private String productPack;//产品包装
     private String productName;//产品名称
     private Integer typeId;//产品类别
     private Integer supplierId;//供应商id
@@ -47,12 +47,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getProductCore() {
-        return productCore;
+    public String getProductPack() {
+        return productPack;
     }
 
-    public void setProductCore(String productCore) {
-        this.productCore = productCore;
+    public void setProductPack(String productPack) {
+        this.productPack = productPack;
     }
 
     public String getProductName() {
