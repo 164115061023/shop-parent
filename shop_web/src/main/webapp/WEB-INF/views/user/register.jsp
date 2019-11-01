@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -35,28 +36,28 @@
 
             <div class="am-tabs" id="doc-my-tabs">
                 <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
-                    <li class="am-active"><a href="">邮箱注册</a></li>
-                    <li><a href="">手机号注册</a></li>
+                    <li class="${param.msg!='phone'?'am-active':''}"><a href="">邮箱注册</a></li>
+                    <li class="${param.msg=='phone'?'am-active':''}"><a href="">手机号注册</a></li>
                 </ul>
 
                 <div class="am-tabs-bd">
-                    <div class="am-tab-panel am-active">
+                    <div class="am-tab-panel ${param.msg!='phone'?'am-active':''}">
                         <form method="post" class="layui-form" action="/user/toregisteremail" id="form1">
 
                             <div class="user-email">
                                 <label for="email"><i class="am-icon-envelope-o"></i></label>
                                 <input type="email" name="username" lay-verify="required|email" id="email"
-                                       placeholder="请输入邮箱账号">
+                                       placeholder="请输入邮箱账号" lay-verType="tips">
                             </div>
                             <div class="user-pass">
                                 <label for="password"><i class="am-icon-lock"></i></label>
                                 <input type="password" name="password1" lay-verify="pass" id="password"
-                                       placeholder="设置密码">
+                                       placeholder="设置密码" lay-verType="tips">
                             </div>
                             <div class="user-pass">
                                 <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
                                 <input type="password" name="password2" lay-verify="pass" id="passwordRepeat"
-                                       placeholder="确认密码">
+                                       placeholder="确认密码" lay-verType="tips">
                             </div>
 
                             <%--<input name="testchk" id="reader-me4" type="checkbox" style="zoom: 1%"> 点击表示您同意商城《服务协议》
@@ -79,15 +80,15 @@
 
                     </div>
 
-                    <div class="am-tab-panel">
+                    <div class="am-tab-panel ${param.msg=='phone'?'am-active':''}">
                         <form id="form2" method="post" class="layui-form" action="/user/toregisterphone">
                             <div class="user-phone">
                                 <label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
-                                <input type="tel" class="tel" name="tel" id="phone" lay-verify="required|phone" placeholder="请输入手机号">
+                                <input type="tel" class="tel" name="username" id="phone" lay-verify="required|phone" placeholder="请输入手机号" lay-verType="tips">
                             </div>
                             <div class="verification">
                                 <label for="code"><i class="am-icon-code-fork"></i></label>
-                                <input type="text" style="width: 180px" name="" id="code" lay-verify="required"
+                                <input type="text" style="width: 183px" name="code" id="code" lay-verify="required" lay-verType="tips"
                                        placeholder="请输入验证码">
                                 <button class="btn2 layui-btn"
                                    >
@@ -95,11 +96,11 @@
                             </div>
                             <div class="user-pass">
                                 <label for="password"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="" id="password2" lay-verify="pass" placeholder="设置密码">
+                                <input type="password" name="password1" id="password2" lay-verify="pass" placeholder="设置密码" lay-verType="tips">
                             </div>
                             <div class="user-pass">
                                 <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-                                <input type="password" name="" id="passwordRepeat2" lay-verify="pass" placeholder="确认密码">
+                                <input type="password" name="password2" id="passwordRepeat2" lay-verify="pass" placeholder="确认密码" lay-verType="tips">
                             </div>
 
                             <input id="formTwo" style="display: none" type="submit" lay-submit lay-filter="fTwo" name=""
@@ -160,7 +161,7 @@
 <script src="/static/layui/layui.js"></script>
 <script>
 
-
+    let code = '';
     $(function () {
         //触发email注册
         $("#submit1").click(function () {
@@ -173,7 +174,7 @@
 
         //注册——手机验证码发送处理start-----------------
         let time = 60;
-        let code = '';
+
         let btn = $('.btn2');
         function timeCount() {
             time -= 1;
@@ -212,9 +213,17 @@
 
     //layui表单验证start------------------------
     layui.use(['form', 'layer', 'laydate'], function () {
-        var form = layui.form;
+        let form = layui.form;
+        let layer = layui.layer;
 
-        var testArr = [];
+        <c:if test="${param.msg!=null}">
+        layer.msg("您已注册过，去登录吧",{
+            icon:3
+            , offset: ['32%', '63%']
+        });
+        </c:if>
+
+        let testArr = [];
         //自定义验证规则
         form.verify({
             pass: [
@@ -250,8 +259,23 @@
         });
         form.on('submit(fTwo)', function (data) {		// 根据选中的复选框对应的值存成数组判断数组长度代替验证
 
-            console.log($('.form2').prop('checked'));
-            console.log(data.form.childNodes);
+            //console.log($('.form2').prop('checked'));
+            //console.log(data.form.childNodes);
+
+            if(data.field.password1!=data.field.password2){
+                layer.msg('两次密码输入不一致', {
+                    time: 2000
+                    , offset: ['32%', '63%']
+                });
+                return false;
+            }
+            if(data.field.code!=code){
+                layer.msg('验证码错误', {
+                    time: 2000
+                    , offset: ['32%', '63%']
+                });
+                return false;
+            }
 
             if ($('.form2').prop('checked') == true) {
                 return true;
