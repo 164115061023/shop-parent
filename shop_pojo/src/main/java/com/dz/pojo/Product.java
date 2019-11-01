@@ -29,6 +29,10 @@ public class Product {
 
     //品牌一对一
     //供应商  一对多  todo
+
+    //商品多对一 订单
+    private OrderMaster orderMaster;
+
     //产品评论一对多
     private List<ProductComment> productCommentList;
     //购物券  一对一
@@ -201,5 +205,13 @@ public class Product {
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
+    }
+
+    public OrderMaster getOrderMaster() {
+        return orderMaster;
+    }
+
+    public void setOrderMaster(OrderMaster orderMaster) {
+        this.orderMaster = orderMaster;
     }
 }

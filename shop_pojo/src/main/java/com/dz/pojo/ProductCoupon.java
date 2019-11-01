@@ -1,7 +1,6 @@
 package com.dz.pojo;
 
 public class ProductCoupon {
-
     //优惠券
     private Integer id;
     private Integer productId;//产品id

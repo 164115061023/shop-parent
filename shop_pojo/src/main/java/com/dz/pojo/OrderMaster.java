@@ -10,12 +10,14 @@ public class OrderMaster {
     private Double discountMoney;//折扣价
     private Double shoppingMoney;//原价
     private Double paymentMoney;//应付金额
-    private Integer shoppingCartId;//购物券编号
+    private Integer shoppingCardId;//购物券编号
     private String createTime;//创建时间
     private String payTime;//下单时间
     private String receiveTime;//收货时间
     private String orderStatus;//订单状态
     private Double orderPoint;//购物积分
+    private Integer productId;//商品Id
+
 
     //user一对多
     private UserLogin userLogin;
@@ -23,6 +25,10 @@ public class OrderMaster {
     private Address address;
     //购物券 一对一
     private ShoppingCart shoppingCart;
+    //售后 一对一
+    private SafterSale safterSale;
+
+
 
     public Integer getId() {
         return id;
@@ -88,12 +94,12 @@ public class OrderMaster {
         this.paymentMoney = paymentMoney;
     }
 
-    public Integer getShoppingCartId() {
-        return shoppingCartId;
+    public Integer getShoppingCardId() {
+        return shoppingCardId;
     }
 
-    public void setShoppingCartId(Integer shoppingCartId) {
-        this.shoppingCartId = shoppingCartId;
+    public void setShoppingCardId(Integer shoppingCardId) {
+        this.shoppingCardId = shoppingCardId;
     }
 
     public String getCreateTime() {
@@ -136,6 +142,15 @@ public class OrderMaster {
         this.orderPoint = orderPoint;
     }
 
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
     public UserLogin getUserLogin() {
         return userLogin;
     }
@@ -158,5 +173,13 @@ public class OrderMaster {
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
+    }
+
+    public SafterSale getSafterSale() {
+        return safterSale;
+    }
+
+    public void setSafterSale(SafterSale safterSale) {
+        this.safterSale = safterSale;
     }
 }
