@@ -269,13 +269,13 @@
                 });
                 return false;
             }
-            /*if(data.field.code!=code){
+            if(data.field.code!=code){
                 layer.msg('验证码错误', {
                     time: 2000
                     , offset: ['32%', '63%']
                 });
                 return false;
-            }*/
+            }
 
             if ($('.form2').prop('checked') == true) {
                 return true;
