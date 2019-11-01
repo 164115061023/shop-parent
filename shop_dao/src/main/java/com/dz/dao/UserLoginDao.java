@@ -3,9 +3,9 @@ package com.dz.dao;
 
 import com.dz.pojo.UserLogin;
 
-import com.dz.pojo.User;
 
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 public interface UserLoginDao {
@@ -18,4 +18,6 @@ public interface UserLoginDao {
     @Select("select * from user_login where username=#{username}")
     UserLogin findByLoginName(String username);
 
+    @Insert("insert into user_login(username,password) values(#{param1},#{param2})")
+    void save(String username, String password);
 }
