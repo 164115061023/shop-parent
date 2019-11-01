@@ -63,7 +63,7 @@ public class UserLoginController {
             model.addAttribute("msg","success");
 
 
-            return "redirect:user/RCF";
+            return "user/RCF";
         }
 
     }

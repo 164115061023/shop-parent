@@ -14,7 +14,7 @@ public class MainController {
 
     @RequestMapping("/introduction")
     public String introduction(){
-        return "main/introduction";
+        return "product/introduction";
     }
 
 }
