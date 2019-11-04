@@ -15,4 +15,7 @@ public interface AfterSaleDao {
     @Select("SELECT a.id,a.createtime createTime,o.payment_money paymentMoney ,o.payment_method  paymentMethod ,o.orderno orderNo,p.product_pack productPack,p.product_name productName,p.descript descript  FROM after_sale a LEFT JOIN order_master o  ON a.order_master_id = o.id JOIN product p ON o.product_id = p.id WHERE a.user_login_id = #{userLoginId}")
     List<AfterSale> findByUserLoginId(Integer userLoginId);
 
+    // 售后与订单表联查
+
+
 }

@@ -53,10 +53,7 @@ public class MynestController {
 
         model.addAttribute("afterSaleList",afterSaleService.findByUserLoginId(userLogin.getId()));
 
-        List<AfterSale> afterList = afterSaleService.findByUserLoginId(userLogin.getId());
-        for (AfterSale a: afterList){
-            System.out.println(a.getCreateTime());
-        }
+
 
 
 

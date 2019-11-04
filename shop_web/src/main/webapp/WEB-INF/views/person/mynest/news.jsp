@@ -105,7 +105,7 @@
 						<div class="am-tabs am-tabs-d2" data-am-tabs>
 							<ul class="am-avg-sm-3 am-tabs-nav am-nav am-nav-tabs">
 								<li class="am-active"><a href="#tab1">商城活动</a></li>
-								<li><a href="#tab2">物流助手</a></li>
+								<%--<li><a href="#tab2">物流助手</a></li>--%>
 								<li><a href="#tab3">交易信息</a></li>
 
 							</ul>
