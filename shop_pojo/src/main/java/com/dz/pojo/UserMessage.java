@@ -8,6 +8,8 @@ public class UserMessage {
     private String email; //邮箱
     private String birthday;//出生日期
     private Integer userLoginId;//会员登录表Id
+    private Integer paypassword;//支付密码
+    private String idcard;//身份证号
     //一对一关系
     private UserLogin userLogin;
 
@@ -73,5 +75,21 @@ public class UserMessage {
 
     public void setUserLogin(UserLogin userLogin) {
         this.userLogin = userLogin;
+    }
+
+    public Integer getPaypassword() {
+        return paypassword;
+    }
+
+    public void setPaypassword(Integer paypassword) {
+        this.paypassword = paypassword;
+    }
+
+    public String getIdcard() {
+        return idcard;
+    }
+
+    public void setIdcard(String idcard) {
+        this.idcard = idcard;
     }
 }

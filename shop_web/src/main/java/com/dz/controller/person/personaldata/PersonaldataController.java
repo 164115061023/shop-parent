@@ -85,6 +85,7 @@ public class PersonaldataController  {
     @RequestMapping(value = "/update",method = RequestMethod.POST)
     public String update(UserMessage userMessage)  {
        userMessageService.updateInfo(userMessage);
+       String birthday ="sel1+ \"\"+sel2+\"\"+sel3";
        return "redirect:/person/personaldata/information";
     }
     //修改密码
