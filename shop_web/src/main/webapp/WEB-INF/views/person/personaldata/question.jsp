@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -115,41 +116,56 @@
 							<div class="u-progress-bar-inner"></div>
 						</div>
 					</div>
-					<form class="am-form am-form-horizontal">
+					<form class="am-form am-form-horizontal" action="/person/personaldata/savequestion" method="post">
+						<%--问题一start--%>
 						<div class="am-form-group select">
+							<input type="hidden" name="userLoginId" value="${safeQuestion.userLoginId}">
 							<label id="user-question1" class="am-form-label">问题一</label>
 							<div class="am-form-content">
+								<%--<input type="text" name="question">--%>
 								<select data-am-selected>
 									<option value="a" selected>请选择安全问题</option>
 									<option value="b">您最喜欢的颜色是什么？</option>
 									<option value="c">您的故乡在哪里？</option>
 								</select>
+
 							</div>
 						</div>
+
 						<div class="am-form-group">
 							<label for="user-answer1" class="am-form-label">答案</label>
 							<div class="am-form-content">
-								<input type="text" id="user-answer1" placeholder="请输入安全问题答案">
+								<input type="text" id="user-answer1" name="answer" placeholder="请输入安全问题答案">
 							</div>
 						</div>
+						<%--问题一end--%>
+
+						<%--问题二start--%>
 						<div class="am-form-group select">
 							<label id="user-question2" class="am-form-label">问题二</label>
 							<div class="am-form-content">
-								<select data-am-selected>
-									<option value="a" selected>请选择安全问题</option>
-									<option value="b">您最喜欢的颜色是什么？</option>
-									<option value="c">您的故乡在哪里？</option>
-								</select>
+
+							<%--<input type="text" name="question2">--%>
+
+							<select data-am-selected>
+								<option value="a" selected>请选择安全问题</option>
+								<option value="b">您最喜欢的颜色是什么？</option>
+								<option value="c">您的故乡在哪里？</option>
+							</select>
+
 							</div>
 						</div>
 						<div class="am-form-group">
 							<label for="user-answer2" class="am-form-label">答案</label>
 							<div class="am-form-content">
-								<input type="text" id="user-answer2" placeholder="请输入安全问题答案">
+								<input type="text" id="user-answer2" name="answer" placeholder="请输入安全问题答案">
 							</div>
 						</div>
+						<%--问题二end--%>
+
 						<div class="info-btn">
-							<div class="am-btn am-btn-danger">保存修改</div>
+							<%--<div class="am-btn am-btn-danger">保存修改</div>--%>
+							<input type="submit" value="保存修改" class="am-btn am-btn-danger" >
 						</div>
 
 					</form>

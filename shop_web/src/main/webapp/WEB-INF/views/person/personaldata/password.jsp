@@ -128,7 +128,7 @@
 							<label for="oldpassword" class="am-form-label">原密码</label>
 							<div class="am-form-content">
 								<%--<input type="password" name="password"  id="user-old-password" placeholder="请输入原登录密码">--%>
-								<input type='password' id="oldpassword"  name="password"/><div style="display: inline" id="tip1"></div>
+									<input type='password' id="oldpassword"  name="oldpassword"/><div style="display: inline" id="tip1"></div>
 									<input type="hidden" name="id" value="${userLogin.id}">
 							</div>
 						</div>
@@ -144,7 +144,7 @@
 						<div class="am-form-group">
 							<label for="password2" class="am-form-label">确认密码</label>
 							<div class="am-form-content">
-								<input type='password' id="password2" name="password" placeholder="must match with the first"/><div style="display: inline" id="tip3"></div>
+								<input type='password' id="password2" name="password2" placeholder="must match with the first"/><div style="display: inline" id="tip3"></div>
 								<%--<input type="password" name="password" class="pw2" id="user-confirm-password" placeholder="请再次输入上面的密码">--%>
 							</div>
 						</div>
@@ -252,25 +252,17 @@
 							data:{oldpassword:old,password:pass},
 							success:function(e){
 								if(e.code==1){
-									/*$("#tip4").show().html("<font color=\"green\" size=\"3\">  Edit Success!</font>");*/
 									$("#oldpassword").val("");
 									$("#password1").val("");
 									$("#password2").val("");
 									$("#tip1").empty();
 									$("#tip2").empty();
 									$("#tip3").empty();
-									/*$("#tip4").delay(2000).hide(0);*/
 								}
-								/*else{
-									$("#tip4").show().html("<font color=\"red\" size=\"3\">  OldPassword is Wrong!</font>");
-								}*/
+
 							}
 						});
 					}
-					/*else{
-
-						$("#tip4").show().html("<font color=\"red\" size=\"3\">  Please follow the tips!</font>");
-					}*/
 				});
 			});
 		</script>
