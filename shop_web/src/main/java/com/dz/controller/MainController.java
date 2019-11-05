@@ -12,9 +12,6 @@ public class MainController {
         return "main/home";
     }
 
-    @RequestMapping("/introduction")
-    public String introduction(){
-        return "product/introduction";
-    }
+
 
 }

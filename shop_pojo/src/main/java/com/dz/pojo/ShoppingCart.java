@@ -1,6 +1,8 @@
 package com.dz.pojo;
 
-public class ShoppingCart {
+import java.util.List;
+
+public class  ShoppingCart {
     //购物券
     private Integer id;
     private Integer userLoginId;//userid
@@ -9,11 +11,8 @@ public class ShoppingCart {
     private Double price;//价格
     private String createTime;//创建时间
 
-    //user 一对多
-    private UserLogin userLogin;
-    //商品  一对一
-    private Product product;
-
+    //购物车产品，一对多
+    private List<Product> productList;
 
 
     public Integer getId() {
@@ -64,19 +63,11 @@ public class ShoppingCart {
         this.createTime = createTime;
     }
 
-    public UserLogin getUserLogin() {
-        return userLogin;
+    public List<Product> getProductList() {
+        return productList;
     }
 
-    public void setUserLogin(UserLogin userLogin) {
-        this.userLogin = userLogin;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 }

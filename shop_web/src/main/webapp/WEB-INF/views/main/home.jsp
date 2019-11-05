@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="topMessage mini-cart">
-                <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i
+                <div class="menu-hd"><a id="mc-menu-hd" href="/shopcart/shopcart" target="_top"><i
                         class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
                                                                                               class="h">0</strong></a>
                 </div>
@@ -87,7 +87,7 @@
     <!--轮播 -->
     <div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
         <ul class="am-slides">
-            <li class="banner1"><a href="/main/introduction"><img src="/static/images/ad1.jpg"/></a></li>
+            <li class="banner1"><a href="/product/introduction"><img src="/static/images/ad1.jpg"/></a></li>
             <li class="banner2"><a><img src="/static/images/ad2.jpg"/></a></li>
             <li class="banner3"><a><img src="/static/images/ad3.jpg"/></a></li>
             <li class="banner4"><a><img src="/static/images/ad4.jpg"/></a></li>
@@ -878,7 +878,7 @@
                 <h4>开年福利篇</h4>
             </div>
             <div class="recommendationMain one">
-                <a href="/main/introduction"><img src="/static/images/tj.png "></img></a>
+                <a href="/product/introduction"><img src="/static/images/tj.png "></img></a>
             </div>
         </div>
         <div class="am-u-sm-4 am-u-lg-3 ">
@@ -1515,7 +1515,7 @@
 <div class="navCir">
     <li class="active"><a href="home.html"><i class="am-icon-home "></i>首页</a></li>
     <li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-    <li><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>
+    <li><a href="/shopcart/shopcart"><i class="am-icon-shopping-basket"></i>购物车</a></li>
     <li><a href="/static/person/index.html"><i class="am-icon-user"></i>我的</a></li>
 </div>
 
@@ -1545,10 +1545,10 @@
 
             </div>
             <div id="shopCart " class="item ">
-                <a href="# ">
+                <a href="/shopcart/shopcart" class="shopcartpic">
                     <span class="message "></span>
                 </a>
-                <p>
+                <p class="shopcart">
                     购物车
                 </p>
                 <p class="cart_num ">0</p>
@@ -1680,11 +1680,15 @@
         </div>
     </div>
 </div>
-<script src="/static/basic/js/jquery-3.4.1.min.js">
-    window.jQuery || document.write('<script src="/static/basic/js/jquery-3.4.1.min.js"><\/script>');
-
-</script>
+<script src="/static/basic/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript " src="/static/basic/js/quick_links.js "></script>
+
+<script>
+$('.shopcart').click(function () {
+
+    $('.shopcartpic')[0].click();
+})
+</script>
 </body>
 
 </html>
