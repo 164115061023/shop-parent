@@ -106,7 +106,7 @@
                             </span>
 							<span class="step-2 step">
                                 <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
+                                <i class="u-stage-icon-inner oe2">2<em class="bg"></em></i>
                                 <p class="stage-name">完成</p>
                             </span>
 							<span class="u-progress-placeholder"></span>
@@ -115,36 +115,43 @@
 							<div class="u-progress-bar-inner"></div>
 						</div>
 					</div>
-					<form class="am-form am-form-horizontal">
+
+					<form class="am-form am-form-horizontal" action="/person/personaldata/savepassword" method="post">
 						<div class="am-form-group bind">
-							<label for="user-phone" class="am-form-label">验证手机</label>
+							<label for="user-phone tel" class="am-form-label">验证手机</label>
 							<div class="am-form-content">
-								<span id="user-phone">186XXXX0531</span>
+							<span id="user-phone tel"  name="tel">${userMessage.tel}</span>
+								<%--<input id="user-phone tel" type="text" name="tel" class="am-form-label">--%>
+								<input type="hidden" name="userLoginId" value="${userMessage.userLoginId}">
 							</div>
 						</div>
 						<div class="am-form-group code">
-							<label for="user-code" class="am-form-label">验证码</label>
+							<label for="checkCode" class="am-form-label">验证码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-code" placeholder="短信验证码">
+								<input  id="checkCode"  type="text"  name="code" placeholder="短信验证码">
 							</div>
 							<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-								<div class="am-btn am-btn-danger">验证码</div>
+								<%--<div class="am-btn am-btn-danger">验证码</div>--%>
+
+
+								<input type="submit" class="am-btn am-btn-danger" id="code-btn" value="验证码">
 							</a>
 						</div>
 						<div class="am-form-group">
 							<label for="user-password" class="am-form-label">支付密码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-password" placeholder="6位数字">
+								<input type="tel" id="user-password" name="paypassword" placeholder="6位数字">
 							</div>
 						</div>
 						<div class="am-form-group">
 							<label for="user-confirm-password" class="am-form-label">确认密码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-confirm-password" placeholder="请再次输入上面的密码">
+								<input type="tel" id="user-confirm-password" name="paypassword" placeholder="请再次输入上面的密码">
 							</div>
 						</div>
 						<div class="info-btn">
-							<div class="am-btn am-btn-danger">保存修改</div>
+							<%--<div class="am-btn am-btn-danger">保存修改</div>--%>
+							<input type="submit" value="保存修改" id="btn" class="am-btn am-btn-danger">
 						</div>
 
 					</form>
@@ -179,6 +186,42 @@
 				<jsp:param name="menu" value="setpay"/>
 			</jsp:include>
 		</div>
+
+		<script>
+			var code = ""; //接收验证码
+			$('#code-btn').click(function(){
+				var count =60;
+				var tel=${userMessage.tel};//手机号码
+
+				//开始计时
+				$("#code-btn").attr('disabled','disabled');
+				$("#code-btn").html("倒计时" + count + "秒");
+				var timer = setInterval(function(){
+					count--;
+					$("#code-btn").html("倒计时" + count + "秒");
+					if (count==0) {
+						clearInterval(timer);
+						$("#code-btn").attr("disabled",false);//启用按钮
+						$("#code-btn").html("重新发送验证码");
+						code = "";//清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
+					}
+				},1000);
+				$("#btn").click(function () {
+					$(".oe2").show().css({"background-color": "green"})
+				});
+
+				//向后台发送处理数据
+				$.ajax({
+					type: "POST", //用POST方式传输
+					dataType: "text", //数据格式:JSON
+					url: '/person/personaldata/sendCode', //目标地址
+					data: "tel=" + tel + "&code=" + code,
+					error: function (XMLHttpRequest, textStatus, errorThrown) { },
+					success: function (msg){ }
+				});
+			});
+		</script>
+
 
 	</body>
 

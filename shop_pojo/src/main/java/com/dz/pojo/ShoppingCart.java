@@ -1,9 +1,10 @@
 package com.dz.pojo;
 
+
 import java.util.List;
 
 public class  ShoppingCart {
-    //购物券
+
     private Integer id;
     private Integer userLoginId;//userid
     private Integer productId;//商品id

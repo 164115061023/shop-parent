@@ -2,13 +2,15 @@ package com.dz.pojo;
 
 public class Address {
     private Integer id;
-    private Integer userId;
+    private Integer userLoginId;//登录人id
     private String createTime;//创建时间
     private String province;//省
     private String city;//市
     private String district;//区，县
     private String detailAddress;//详细信息
     private Integer isDefault;//默认地址
+    private Integer userMessageId;//用户信息id
+    private String consignee;//收货人
 
     private UserLogin userLogin;//user 信息 一对多
 
@@ -25,12 +27,12 @@ public class Address {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUserLoginId() {
+        return userLoginId;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserLoginId(Integer userLoginId) {
+        this.userLoginId = userLoginId;
     }
 
     public String getCreateTime() {
@@ -95,5 +97,21 @@ public class Address {
 
     public void setOrderMaster(OrderMaster orderMaster) {
         this.orderMaster = orderMaster;
+    }
+
+    public Integer getUserMessageId() {
+        return userMessageId;
+    }
+
+    public void setUserMessageId(Integer userMessageId) {
+        this.userMessageId = userMessageId;
+    }
+
+    public String getConsignee() {
+        return consignee;
+    }
+
+    public void setConsignee(String consignee) {
+        this.consignee = consignee;
     }
 }

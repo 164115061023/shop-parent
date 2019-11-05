@@ -158,50 +158,57 @@
 									<label class="am-form-label">性别</label>
 									<div class="am-form-content sex">
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" class="m" value="male" data-am-ucheck> 男
+											<input type="radio" name="sex" class="m" value="男" data-am-ucheck> 男
 										</label>
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" class="fm" value="female" data-am-ucheck> 女
+											<input type="radio" name="sex" class="fm" value="女" data-am-ucheck> 女
 										</label>
 										<label class="am-radio-inline">
-											<input type="radio" name="radio10" class="bm" value="secret" data-am-ucheck> 保密
+											<input type="radio" name="sex" class="bm" value="保密" data-am-ucheck> 保密
 										</label>
 									</div>
 								</div>
 
 								<div class="am-form-group">
 									<label id="user-birth" class="am-form-label">生日</label>
+
 									<div class="am-form-content birth">
+
 										<div class="birth-select">
-                                           <%-- <select name="year" οnchange="selectYear(this.value)">
-                                                <option value=""></option>
-                                            </select>--%>
-											<select data-am-selected >
-												<option value=""></option>
+											<select name="sel1" id="sel1">
+												<option value="year"  ></option>
 											</select>
+                                            <%--<select name="year" onchange="selectYear(this.value)">
+                                                <option value="" name="birthday"></option>
+                                            </select>
+											--%>
 											<em>年</em>
 										</div>
-										<div class="birth-select2">
-                                            <%--<select name="month" οnchange="selectMonth(this.value)">
-                                                <option value=""></option>
-                                            </select>--%>
-											<select data-am-selected>
-												<option value=""></option>
 
+										<div class="birth-select2">
+                                            <%--<select name="month" onchange="selectMonth(this.value)">
+                                                <option value="" name="birthday"></option>
+                                            </select>--%>
+											<select name="sel2" id="sel2">
+												<option value="month" ></option>
 											</select>
 											<em>月</em></div>
-										<div class="birth-select2">
-                                            <%--<select name="day">
-                                                <option value=""></option>
-                                            </select>--%>
-											<select data-am-selected>
-												<option value=""></option>
 
+										<div class="birth-select2">
+											<%--<select name="day">
+                                            <option value="" name="birthday"></option>
+                                        </select>--%>
+											<select name="sel3" id="sel3">
+												<option value="day"  ></option>
 											</select>
 											<em>日</em></div>
+
+										<span id="result"></span>
+										<input type="hidden" name="birthday">
 									</div>
 							
 								</div>
+
 								<div class="am-form-group">
 									<label for="user-phone" class="am-form-label">电话</label>
 									<div class="am-form-content">
@@ -246,7 +253,7 @@
 
 								<div class="info-btn">
 									<%--<div class="am-btn am-btn-danger">保存修改</div>--%>
-										<input type="submit" value="保存修改">
+										<input type="submit" value="保存修改" class="am-btn am-btn-danger">
 								</div>
 
 							</form>
@@ -288,81 +295,134 @@
 
 
         <script>
+			$(function () {
+				$(".m").click().val(),
+				$(".fm").click().val(),
+				$(".bm").click().val();
+				$(".bd").click().val();
 
-            /*function dateStart()
+			});
+			//生成日期
+			function creatDate()
+			{
+				//生成1900年-2020年
+				for(var i = 2020; i >= 1950; i--)
+				{
+					//创建select项
+					var option = document.createElement('option');
+					option.setAttribute('value',i);
+					option.innerHTML = i;
+					sel1.appendChild(option);
+				}
+				//生成1月-12月
+				for(var i = 1; i <=12; i++){
+					var option1 = document.createElement('option');
+					option1.setAttribute('value',i);
+					option1.innerHTML = i;
+					sel2.appendChild(option1);
+				}
+				//生成1日—31日
+				for(var i = 1; i <=31; i++){
+					var option2 = document.createElement('option');
+					option2.setAttribute('value',i);
+					option2.innerHTML = i;
+					sel3.appendChild(option2);
+				}
+			}
+			creatDate();
+			//保存某年某月的天数
+			var days;
 
-            {//月份对应天数
-                MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+			//年份点击 绑定函数
+			sel1.onclick = function()
+			{
+				//月份显示默认值
+				sel2.options[0].selected = true;
+				//天数显示默认值
+				sel3.options[0].selected = true;
+			}
+			//月份点击 绑定函数
+			sel2.onclick = function()
+			{
+				//天数显示默认值
+				sel3.options[0].selected = true;
+				//计算天数的显示范围
+				//如果是2月
+				if(sel2.value == 2)
+				{
+					//判断闰年
+					if((sel1.value % 4 === 0 && sel1.value % 100 !== 0)  || sel1.value % 400 === 0)
+					{
+						days = 29;
+					}
+					else
+					{
+						days = 28;
+					}
+					//判断小月
+				}else if(sel2.value == 4 || sel2.value == 6 ||sel2.value == 9 ||sel2.value == 11){
+					days = 30;
+				}else{
+					days = 31;
+				}
 
-                //给年下拉框赋内容
-                var y  = new Date().getFullYear();
-                for (var i = (y-50); i < (y+50); i++) //以今年为准，前50年，后50年
-                    document.date.year.options.add(new Option(" "+ i +" 年", i));
+				//增加或删除天数
+				//如果是28天，则删除29、30、31天(即使他们不存在也不报错)
+				if(days == 28){
+					sel3.remove(31);
+					sel3.remove(30);
+					sel3.remove(29);
+				}
+				//如果是29天
+				if(days == 29){
+					sel3.remove(31);
+					sel3.remove(30);
+					//如果第29天不存在，则添加第29天
+					if(!sel3.options[29]){
+						sel3.add(new Option('29','29'),null)
+					}
+				}
+				//如果是30天
+				if(days == 30){
+					sel3.remove(31);
+					//如果第29天不存在，则添加第29天
+					if(!sel3.options[29]){
+						sel3.add(new Option('29','29'),null)
+					}
+					//如果第30天不存在，则添加第30天
+					if(!sel3.options[30]){
+						sel3.add(new Option('30','30'),null)
+					}
+				}
+				//如果是31天
+				if(days == 31){
+					//如果第29天不存在，则添加第29天
+					if(!sel3.options[29])
+					{
+						sel3.add(new Option('29','29'),null)
+					}
+					//如果第30天不存在，则添加第30天
+					if(!sel3.options[30])
+					{
+						sel3.add(new Option('30','30'),null)
+					}
+					//如果第31天不存在，则添加第31天
+					if(!sel3.options[31])
+					{
+						sel3.add(new Option('31','31'),null)
+					}
+				}
+			}
 
-                //给月下拉框赋内容
-                for (var i = 1; i < 13; i++)
-                    document.date.month.options.add(new Option(" " + i + " 月", i));
-
-                document.date.year.value = y;
-                document.date.month.value = new Date().getMonth() + 1;
-                var n = MonHead[new Date().getMonth()];
-                if (  new Date().getMonth() ==1 && IsPinYear(yearvalue)  )
-                    n++;
-                writeDay(n); //赋日期下拉框
-                document.date.day.value = new Date().getDate();
-            }
-
-            if(document.attachEvent)
-                window.attachEvent("onload", dateStart);
-            else
-                window.addEventListener('load', dateStart, false);
-
-            function selectYear(str) //年发生变化时日期发生变化(主要是判断闰平年)
-            {
-                var monthvalue = document.date.month.options[document.date.month.selectedIndex].value;
-                if (monthvalue == "")
-                {
-                    var e = document.date.day;
-                    optionsClear(e);
-                    return;
-                }
-                var n = MonHead[monthvalue - 1];
-                if (  monthvalue ==2 && IsPinYear(str)  )
-                    n++;
-                writeDay(n);
-            }
-
-            function selectMonth(str)   //月发生变化时日期联动
-            {
-                var yearvalue = document.date.year.options[document.date.year.selectedIndex].value;
-                if (yearvalue == "")
-                {
-                    var e = document.date.day;
-                    optionsClear(e);
-                    return;
-                }
-                var n = MonHead[str - 1];
-                if (  str ==2 && IsPinYear(yearvalue)  )
-                    n++;
-                writeDay(n);
-            }
-
-            function writeDay(n)   //据条件写日期的下拉框
-            {
-                var e = document.date.day; optionsClear(e);
-                for (var i=1; i<(n+1); i++)
-                    e.options.add(new Option(" "+ i + " 日", i));
-            }
-
-            function IsPinYear(year)//判断是否闰平年
-            {
-                return(  0 == year%4 && ( year%100 !=0 || year%400 == 0 )  );
-            }
-
-            function optionsClear(e)
-            {
-                e.options.length = 1;
-            }*/
+			//结果显示 设置好日期时间后 弹窗通知
+			box.onclick = function()
+			{
+				//当年、月、日都已经为设置值时
+				if(sel1.value !='year' && sel2.value != 'month' && sel3.value !='day')
+				{
+					alert("sel1+ \"\"+sel2+\"\"+sel3");
+				}
+			}
 
 		</script>
 	</body>
