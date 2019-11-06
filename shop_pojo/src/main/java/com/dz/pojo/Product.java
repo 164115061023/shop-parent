@@ -5,23 +5,26 @@ import java.util.List;
 public class Product {
     //产品信息
     private Integer id;
-    private String productPack;//产品包装
+
+    //private String productCore;//产品核心
+
     private String productName;//产品名称
     private Integer typeId;//产品类别
-    private Integer supplierId;//供应商id
+    //private Integer supplierId;//供应商id
     private Double price;//价格
     private String publishStatus;//商品状态（出售中/已下架）
-    private Double weight;//重量
-    private Double length;//长
-    private Double height;//高
-    private Double width;//宽
-    private String colorType;//颜色
-    private String productionDate;//商品生产日期
-    private String shelfLife;//保质期
+    //private Double weight;//重量
+    //private Double length;//长
+    //private Double height;//高
+    //private Double width;//宽
+    //private String colorType;//颜色
+    //private String productionDate;//商品生产日期
+    //private String shelfLife;//保质期
     private String descript;//商品描述
     private Integer brandId;//品牌
     private Integer stock;//库存
-    private Integer productTypeId;//类别
+    //private Integer productTypeId;//类别
+    private String priority;//优先级
 
 
     //多对一
@@ -47,13 +50,6 @@ public class Product {
         this.id = id;
     }
 
-    public String getProductPack() {
-        return productPack;
-    }
-
-    public void setProductPack(String productPack) {
-        this.productPack = productPack;
-    }
 
     public String getProductName() {
         return productName;
@@ -71,14 +67,6 @@ public class Product {
         this.typeId = typeId;
     }
 
-    public Integer getSupplierId() {
-        return supplierId;
-    }
-
-    public void setSupplierId(Integer supplierId) {
-        this.supplierId = supplierId;
-    }
-
     public Double getPrice() {
         return price;
     }
@@ -93,62 +81,6 @@ public class Product {
 
     public void setPublishStatus(String publishStatus) {
         this.publishStatus = publishStatus;
-    }
-
-    public Double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
-    }
-
-    public Double getLength() {
-        return length;
-    }
-
-    public void setLength(Double length) {
-        this.length = length;
-    }
-
-    public Double getHeight() {
-        return height;
-    }
-
-    public void setHeight(Double height) {
-        this.height = height;
-    }
-
-    public Double getWidth() {
-        return width;
-    }
-
-    public void setWidth(Double width) {
-        this.width = width;
-    }
-
-    public String getColorType() {
-        return colorType;
-    }
-
-    public void setColorType(String colorType) {
-        this.colorType = colorType;
-    }
-
-    public String getProductionDate() {
-        return productionDate;
-    }
-
-    public void setProductionDate(String productionDate) {
-        this.productionDate = productionDate;
-    }
-
-    public String getShelfLife() {
-        return shelfLife;
-    }
-
-    public void setShelfLife(String shelfLife) {
-        this.shelfLife = shelfLife;
     }
 
     public String getDescript() {
@@ -175,6 +107,14 @@ public class Product {
         this.stock = stock;
     }
 
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
     public ProductType getProductType() {
         return productType;
     }
@@ -183,35 +123,6 @@ public class Product {
         this.productType = productType;
     }
 
-    public Integer getProductTypeId() {
-        return productTypeId;
-    }
 
-    public void setProductTypeId(Integer productTypeId) {
-        this.productTypeId = productTypeId;
-    }
 
-    public List<ProductComment> getProductCommentList() {
-        return productCommentList;
-    }
-
-    public void setProductCommentList(List<ProductComment> productCommentList) {
-        this.productCommentList = productCommentList;
-    }
-
-    public ShoppingCart getShoppingCart() {
-        return shoppingCart;
-    }
-
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
-    }
-
-    public OrderMaster getOrderMaster() {
-        return orderMaster;
-    }
-
-    public void setOrderMaster(OrderMaster orderMaster) {
-        this.orderMaster = orderMaster;
-    }
 }

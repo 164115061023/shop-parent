@@ -8,14 +8,14 @@
 
 		<title>结算页面</title>
 
-		<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+		<link href="/static/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
 
-		<link href="../basic/css/demo.css" rel="stylesheet" type="text/css" />
-		<link href="../css/cartstyle.css" rel="stylesheet" type="text/css" />
+		<link href="/static/basic/css/demo.css" rel="stylesheet" type="text/css" />
+		<link href="/static/css/cartstyle.css" rel="stylesheet" type="text/css" />
 
-		<link href="../css/jsstyle.css" rel="stylesheet" type="text/css" />
+		<link href="/static/css/jsstyle.css" rel="stylesheet" type="text/css" />
 
-		<script type="text/javascript" src="../js/address.js"></script>
+		<script type="text/javascript" src="/static/js/address.js"></script>
 
 	</head>
 
@@ -49,9 +49,9 @@
 			<!--悬浮搜索框-->
 
 			<div class="nav white">
-				<div class="logo"><img src="../images/logo.png" /></div>
+				<div class="logo"><img src="/static/images/logo.png" /></div>
 				<div class="logoBig">
-					<li><img src="../images/logobig.png" /></li>
+					<li><img src="/static/images/logobig.png" /></li>
 				</div>
 
 				<div class="search-bar pr">
@@ -99,7 +99,7 @@
 									<ins class="deftip">默认地址</ins>
 								</div>
 								<div class="address-right">
-									<a href="../person/address.html">
+									<a href="/static/person/address.html">
 										<span class="am-icon-angle-right am-icon-lg"></span></a>
 								</div>
 								<div class="clear"></div>
@@ -172,9 +172,9 @@
 					<div class="logistics">
 						<h3>选择支付方式</h3>
 						<ul class="pay-list">
-							<li class="pay card"><img src="../images/wangyin.jpg" />银联<span></span></li>
-							<li class="pay qq"><img src="../images/weizhifu.jpg" />微信<span></span></li>
-							<li class="pay taobao"><img src="../images/zhifubao.jpg" />支付宝<span></span></li>
+							<li class="pay card"><img src="/static/images/wangyin.jpg" />银联<span></span></li>
+							<li class="pay qq"><img src="/static/images/weizhifu.jpg" />微信<span></span></li>
+							<li class="pay taobao"><img src="/static/images/zhifubao.jpg" />支付宝<span></span></li>
 						</ul>
 					</div>
 					<div class="clear"></div>
@@ -215,7 +215,7 @@
 												<li class="td td-item">
 													<div class="item-pic">
 														<a href="#" class="J_MakePoint">
-															<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+															<img src="/static/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
 													</div>
 													<div class="item-info">
 														<div class="item-basic-info">
@@ -279,7 +279,7 @@
 												<li class="td td-item">
 													<div class="item-pic">
 														<a href="#" class="J_MakePoint">
-															<img src="../images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
+															<img src="/static/images/kouhong.jpg_80x80.jpg" class="itempic J_ItemImg"></a>
 													</div>
 													<div class="item-info">
 														<div class="item-basic-info">
@@ -524,7 +524,7 @@
 							<label for="user-intro" class="am-form-label">详细地址</label>
 							<div class="am-form-content">
 								<textarea class="" rows="3" id="user-intro" placeholder="输入详细地址"></textarea>
-								<small>100字以内写出你的详细地址...</small>
+								<small>100字以内写出你的详细地址/static.</small>
 							</div>
 						</div>
 

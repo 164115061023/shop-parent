@@ -18,7 +18,12 @@ public class UserMessageService {
     public UserMessage findByUid(Integer uid){
         return userMessageDao.findByUid(uid);
     }
+    public void updatepaypwd(UserMessage userMessage){
+       userMessageDao.updatepaypwd(userMessage);
+    }
 
 
-
+    public void updateBirthday(String birthday) {
+       userMessageDao.updateBirthday(birthday);
+    }
 }

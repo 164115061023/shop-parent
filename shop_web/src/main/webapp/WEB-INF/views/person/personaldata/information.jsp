@@ -176,7 +176,7 @@
 
 										<div class="birth-select">
 											<select name="sel1" id="sel1">
-												<option value="year" ></option>
+												<option value="year"  ></option>
 											</select>
                                             <%--<select name="year" onchange="selectYear(this.value)">
                                                 <option value="" name="birthday"></option>
@@ -190,7 +190,7 @@
                                                 <option value="" name="birthday"></option>
                                             </select>--%>
 											<select name="sel2" id="sel2">
-												<option value="month"></option>
+												<option value="month" ></option>
 											</select>
 											<em>月</em></div>
 
@@ -199,12 +199,12 @@
                                             <option value="" name="birthday"></option>
                                         </select>--%>
 											<select name="sel3" id="sel3">
-												<option value="day" ></option>
+												<option value="day"  ></option>
 											</select>
 											<em>日</em></div>
 
 										<span id="result"></span>
-										<input type="hidden" name="birthday" value="${userMessage.birthday}" class="bd">
+										<input type="hidden" name="birthday">
 									</div>
 							
 								</div>
@@ -305,7 +305,7 @@
 			//生成日期
 			function creatDate()
 			{
-				//生成1900年-2100年
+				//生成1900年-2020年
 				for(var i = 2020; i >= 1950; i--)
 				{
 					//创建select项
@@ -420,7 +420,7 @@
 				//当年、月、日都已经为设置值时
 				if(sel1.value !='year' && sel2.value != 'month' && sel3.value !='day')
 				{
-					alert("日期时间已经设定好");
+					alert("sel1+ \"\"+sel2+\"\"+sel3");
 				}
 			}
 
