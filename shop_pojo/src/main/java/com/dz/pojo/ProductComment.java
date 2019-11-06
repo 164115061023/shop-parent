@@ -4,7 +4,7 @@ public class ProductComment {
     //产品评论
     private Integer id;
     private Integer productId;//产品信息
-    private Integer orderMasterId;//订单id
+    private Integer orderNO;//订单编号
     private Integer userLoginId;//userId
     private String title;//标题
     private String content;//内容
@@ -17,6 +17,8 @@ public class ProductComment {
     private OrderMaster orderMaster;
     //user一对多
     private UserLogin userLogin;
+
+
 
     public Integer getId() {
         return id;
@@ -34,12 +36,12 @@ public class ProductComment {
         this.productId = productId;
     }
 
-    public Integer getOrderMasterId() {
-        return orderMasterId;
+    public Integer getOrderNO() {
+        return orderNO;
     }
 
-    public void setOrderMasterId(Integer orderMasterId) {
-        this.orderMasterId = orderMasterId;
+    public void setOrderNO(Integer orderNO) {
+        this.orderNO = orderNO;
     }
 
     public Integer getUserLoginId() {

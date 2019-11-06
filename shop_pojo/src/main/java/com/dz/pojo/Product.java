@@ -28,7 +28,7 @@ public class Product {
     private ProductType productType; //产品类别
 
     //品牌一对一
-    //供应商  一对多  todo
+
 
     //商品多对一 订单
     private OrderMaster orderMaster;

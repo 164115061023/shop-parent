@@ -19,8 +19,10 @@ public class UserLogin {
     private List<ProductComment> productCommentList;
     //订单 多对一
     private List<OrderMaster> orderMasterList;
-    //购物券 多对一
+    //购物车 多对一
     private List<ShoppingCart> shoppingCartList;
+    //优惠券 多对一
+    private List<ProductUserCoupon> productUserCoupons;
 
 
     public Integer getId() {
@@ -101,5 +103,13 @@ public class UserLogin {
 
     public void setShoppingCartList(List<ShoppingCart> shoppingCartList) {
         this.shoppingCartList = shoppingCartList;
+    }
+
+    public List<ProductUserCoupon> getProductUserCoupons() {
+        return productUserCoupons;
+    }
+
+    public void setProductUserCoupons(List<ProductUserCoupon> productUserCoupons) {
+        this.productUserCoupons = productUserCoupons;
     }
 }
