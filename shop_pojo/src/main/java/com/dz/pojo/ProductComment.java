@@ -1,10 +1,12 @@
 package com.dz.pojo;
 
+import java.util.List;
+
 public class ProductComment {
     //产品评论
     private Integer id;
     private Integer productId;//产品信息
-    private Integer orderMasterId;//订单id
+    private Integer orderId;//订单id
     private Integer userLoginId;//userId
     private String title;//标题
     private String content;//内容
@@ -17,6 +19,9 @@ public class ProductComment {
     private OrderMaster orderMaster;
     //user一对多
     private UserLogin userLogin;
+    //评论照片 多对一
+    private List<ProductCommentPic> productCommentPicList;
+
 
     public Integer getId() {
         return id;
@@ -34,12 +39,12 @@ public class ProductComment {
         this.productId = productId;
     }
 
-    public Integer getOrderMasterId() {
-        return orderMasterId;
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public void setOrderMasterId(Integer orderMasterId) {
-        this.orderMasterId = orderMasterId;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
     public Integer getUserLoginId() {
@@ -96,5 +101,13 @@ public class ProductComment {
 
     public void setUserLogin(UserLogin userLogin) {
         this.userLogin = userLogin;
+    }
+
+    public List<ProductCommentPic> getProductCommentPicList() {
+        return productCommentPicList;
+    }
+
+    public void setProductCommentPicList(List<ProductCommentPic> productCommentPicList) {
+        this.productCommentPicList = productCommentPicList;
     }
 }

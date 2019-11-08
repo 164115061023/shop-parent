@@ -161,9 +161,9 @@
 																<div class="item-info">
 																	<div class="item-basic-info">
 																		<a href="#">
-																			<p>${product.productName} </p>
-																			<p class="info-little">颜色分类：${product.color}
-																				<br/>尺码：${product.size}</p>
+																			<p>礼盒袜子女秋冬 纯棉袜加厚 韩国可爱 </p>
+																			<p class="info-little">颜色分类：粉色
+																				<br/>尺码：均尺</p>
 																		</a>
 																	</div>
 																</div>

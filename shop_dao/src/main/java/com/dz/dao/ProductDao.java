@@ -1,19 +1,35 @@
 package com.dz.dao;
 
 import com.dz.pojo.Product;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface ProductDao {
 
+    //通过userid获得评论
+    @Select("select * from product where user_id = #{userId} ")
+    List<Product> findByUserId(Integer userId);
+
     //通过id找商品
-    @Select("select id,product_pack productPack,product_name productName,type_id typeId,supplier_id supplierId" +
-            "price,publish_status publishStatus,weight,length,height,width,color_type colorType,production_date productionDate" +
-            "shelf_life shelfLife,descript,brand_id brandId,stock,product_type_id productTypeId from product where id = #{id}")
+    @Select("select * from product product where id=#{id}")
+    @Results({
+            @Result(property = "productName",column = "product_name")
+            ,@Result(property = "typeId",column = "type_id")
+            ,@Result(property = "brandId",column = "brand_id")
+    })
     Product findById(Integer id);
-    //通过id 查找商品信息
-    @Select("SELECT id,product_name as productName,price,size,color,pack from product where id = #{id}")
-    Product findAll(Integer id);
 
 
+    //查找权限是今日推荐的商品
+    @Select("select * from product where priority='今日推荐'")
+    @Results({
+            @Result(property = "productName",column = "product_name")
+            ,@Result(property = "typeId",column = "type_id")
+            ,@Result(property = "brandId",column = "brand_id")
+    })
+    List<Product> findByRecommend();
 
 }

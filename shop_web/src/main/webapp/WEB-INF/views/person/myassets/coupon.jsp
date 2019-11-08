@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -117,19 +119,20 @@
                     <div class="am-tabs-bd">
                         <div class="am-tab-panel am-fade am-in am-active" id="tab1">
                             <div class="coupon-items">
+                                <c:forEach items="${requestScope.validityList}" var="validityList">
                                 <div class="coupon-item coupon-item-d">
                                     <div class="coupon-list">
                                         <div class="c-type">
                                             <div class="c-class">
-                                                <strong>购物券</strong>
+                                                <strong>${validityList.couponsName}</strong>
                                             </div>
                                             <div class="c-price">
-                                                <strong>￥8</strong>
+                                                <strong>￥${validityList.money}</strong>
                                             </div>
                                             <div class="c-limit">
-                                                【消费满&nbsp;95元&nbsp;可用】
+                                                【消费满&nbsp;${validityList.limits}元&nbsp;可用】
                                             </div>
-                                            <div class="c-time"><span>使用期限</span>2015-12-21--2015-12-31</div>
+                                            <div class="c-time"><span>使用期限</span>${fn:substring(validityList.startTime,0,10)}--${fn:substring(validityList.endTime,0,10)}</div>
                                             <div class="c-type-top"></div>
 
                                             <div class="c-type-bottom"></div>
@@ -140,7 +143,7 @@
                                                 <div class="range-all">
                                                     <div class="range-item">
                                                         <span class="label">券&nbsp;编&nbsp;号：</span>
-                                                        <span class="txt">35730144</span>
+                                                        <span class="txt">${validityList.couponsNo}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,6 +153,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                </c:forEach>
+
+
                                 <div class="coupon-item coupon-item-yf">
                                     <div class="coupon-list">
                                         <div class="c-type">
@@ -188,21 +194,23 @@
 
                         </div>
                         <div class="am-tab-panel am-fade" id="tab2">
+
                             <div class="coupon-items">
+                                <c:forEach items="${requestScope.usedList}" var="usedList">
                                 <div class="coupon-item coupon-item-d">
                                     <div class="coupon-list">
                                         <div class="c-type">
                                             <div class="c-class">
-                                                <strong>购物券</strong>
+                                                <strong>${usedList.couponsName}</strong>
                                                 <span class="am-icon-trash"></span>
                                             </div>
                                             <div class="c-price">
-                                                <strong>￥8</strong>
+                                                <strong>￥${usedList.money}</strong>
                                             </div>
                                             <div class="c-limit">
-                                                【消费满&nbsp;95元&nbsp;可用】
+                                                【消费满&nbsp;${usedList.limits}元&nbsp;可用】
                                             </div>
-                                            <div class="c-time"><span>使用期限</span>2015-12-21--2015-12-31</div>
+                                            <div class="c-time"><span>使用期限</span>${fn:substring(usedList.startTime,0,10)}--${fn:substring(usedList.endTime,0,10)}</div>
                                             <div class="c-type-top"></div>
 
                                             <div class="c-type-bottom"></div>
@@ -213,12 +221,13 @@
                                                 <div class="range-all">
                                                     <div class="range-item">
                                                         <span class="label">券&nbsp;编&nbsp;号：</span>
-                                                        <span class="txt">35730144</span>
+                                                        <span class="txt">${usedList.couponsNo}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="op-btns c-del">
-                                                <a href="#" class="btn"><span class="txt">删除</span><b></b></a>
+
+                                                <a  href="#" class="btn"><span class="txt">删除</span><b></b></a>
                                             </div>
                                         </div>
 
@@ -229,6 +238,51 @@
                                         </li>
                                     </div>
                                 </div>
+                                </c:forEach>
+
+
+                                <c:forEach items="${requestScope.outOfDateList}" var="outOfDateList">
+                                <div class="coupon-item coupon-item-d">
+                                    <div class="coupon-list">
+                                        <div class="c-type">
+                                            <div class="c-class">
+                                                <strong>${outOfDateList.couponsName}</strong>
+                                                <span class="am-icon-trash"></span>
+                                            </div>
+                                            <div class="c-price">
+                                                <strong>￥${outOfDateList.money}</strong>
+                                            </div>
+                                            <div class="c-limit">
+                                                【消费满&nbsp;${outOfDateList.limits}元&nbsp;可用】
+                                            </div>
+                                            <div class="c-time"><span>使用期限</span>${fn:substring(outOfDateList.startTime,0,10)}--${fn:substring(outOfDateList.endTime,0,10)}</div>
+                                            <div class="c-type-top"></div>
+
+                                            <div class="c-type-bottom"></div>
+                                        </div>
+
+                                        <div class="c-msg">
+                                            <div class="c-range">
+                                                <div class="range-all">
+                                                    <div class="range-item">
+                                                        <span class="label">券&nbsp;编&nbsp;号：</span>
+                                                        <span class="txt">${outOfDateList.couponsNo}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="op-btns c-del">
+                                                <a href="#" class="btn"><span class="txt">删除</span><b></b></a>
+                                            </div>
+                                        </div>
+
+                                        <li class="td td-usestatus ">
+                                            <div class="item-usestatus ">
+                                                <span><img src="/static/images/gift_stamp_21.png"></span>
+                                            </div>
+                                        </li>
+                                    </div>
+                                </div>
+                                </c:forEach>
                                 <div class="coupon-item coupon-item-yf">
                                     <div class="coupon-list">
                                         <div class="c-type">
@@ -272,6 +326,7 @@
                                 </div>
                             </div>
 
+
                         </div>
                     </div>
 
@@ -311,6 +366,18 @@
         <jsp:param name="menu" value="coupon"/>
     </jsp:include>
 </div>
+
+<script src="/static/js/bootstrap.js"></script>
+
+<script>
+
+    $(function () {
+        $('#myModal').modal("show");
+    });
+
+
+</script>
+
 
 </body>
 

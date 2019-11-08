@@ -15,9 +15,7 @@ public class OrderController {
     private ProductService productService;
     //跳转到订单管理页面
     @RequestMapping("/order")
-    public String order(Model model){
-        Product product = productService.findAll(1);
-        model.addAttribute("product",product);
+    public String order(){
         return "/person/order/order";
     }
 

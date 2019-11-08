@@ -100,7 +100,7 @@ public class UserLoginController {
     //手机注册发送验证码
     @RequestMapping("/sendmessage")
     @ResponseBody
-    public String sendmessage(String tel, HttpSession session) {
+    public String sendmessage(String tel) {
         String code = SMS.getMessage(tel);
         //session.setAttribute("code",code);
         return code;
