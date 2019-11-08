@@ -14,8 +14,14 @@ public interface AfterSaleDao {
     //List<AfterSale> findByUserLoginId(Integer userLoginId);
 
     //获取用户所有退款信息
-   @Select("select id,orderno orderNo,createtime createTime,user_login_id userLoginId  from after_sale where user_login_id = #{userLoginId}")
-    List<AfterSale> findByUserLoginId(Integer userLoginId);
+   @Select("select * from after_sale where user_login_id = #{userLoginId}")
+   @Results({
+           @Result(column = "orderno",property = "orderNo"),
+           @Result(column = "createtime",property = "createTime"),
+           @Result(column = "user_login_id",property = "userLoginId")
+   })
+
+   List<AfterSale> findByUserLoginId(Integer userLoginId);
 
     // 售后与订单表联查
 

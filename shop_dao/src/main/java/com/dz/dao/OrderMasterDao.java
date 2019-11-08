@@ -10,19 +10,43 @@ import java.util.List;
 
 public interface OrderMasterDao {
     //通过订单id查找订单
-    @Select("select id,orderno orderNo,user_login_id userLoginId,address_id addressId," +
-            "payment_method paymentMethod,discount_money discountMoney," +
-            "shopping_money  shoppingMoney,payment_money paymentMoney,shopping_card_id shoppingCartId," +
-            "create_time createTime,pay_time payTime,receive_time receiveTime,order_status orderStatus," +
-            "order_point orderPoint from order_master where id = #{id}")
+    @Select("select * from order_master where id = #{id}")
+    @Results({
+            @Result(column = "orderno",property = "orderNo"),
+            @Result(column = "user_login_id",property = "userLoginId"),
+            @Result(column = "address_id",property = "addressId"),
+            @Result(column = "payment_method",property = "paymentMethod"),
+            @Result(column = "discount_money",property = "discountMoney"),
+            @Result(column = "shopping_money",property = "shoppingMoney"),
+            @Result(column = "payment_money",property = "paymentMoney"),
+            @Result(column = "shopping_card_id",property = "shoppingCardId"),
+            @Result(column = "create_time",property = "createTime"),
+            @Result(column = "pay_time",property = "payTime"),
+            @Result(column = "receive_time",property = "receiveTime"),
+            @Result(column = "order_status",property = "orderStatus"),
+            @Result(column = "order_point",property = "orderPoint")
+    })
+
     OrderMaster findById(Integer id);
 
     //通过userLoginId查找订单
-    @Select("select id,orderno orderNo,user_login_id userLoginId,address_id addressId," +
-            "payment_method paymentMethod,discount_money discountMoney," +
-            "shopping_money  shoppingMoney,payment_money paymentMoney,shopping_card_id shoppingCartId," +
-            "create_time createTime,pay_time payTime,receive_time receiveTime,order_status orderStatus," +
-            "order_point orderPoint from order_master where  user_login_id = #{userLoginId} AND order_status = '申请退款' OR order_status = '卖家已退款' OR order_status = '退款中'")
+    @Select("select * from order_master where  user_login_id = #{userLoginId} AND order_status = '申请退款' OR order_status = '卖家已退款' OR order_status = '退款中'")
+    @Results({
+            @Result(column = "orderno",property = "orderNo"),
+            @Result(column = "user_login_id",property = "userLoginId"),
+            @Result(column = "address_id",property = "addressId"),
+            @Result(column = "payment_method",property = "paymentMethod"),
+            @Result(column = "discount_money",property = "discountMoney"),
+            @Result(column = "shopping_money",property = "shoppingMoney"),
+            @Result(column = "payment_money",property = "paymentMoney"),
+            @Result(column = "shopping_card_id",property = "shoppingCardId"),
+            @Result(column = "create_time",property = "createTime"),
+            @Result(column = "pay_time",property = "payTime"),
+            @Result(column = "receive_time",property = "receiveTime"),
+            @Result(column = "order_status",property = "orderStatus"),
+            @Result(column = "order_point",property = "orderPoint")
+    })
+
     List<OrderMaster> fingByUserLoginId(Integer userLoginId);
 
 
