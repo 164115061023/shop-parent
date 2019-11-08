@@ -61,13 +61,37 @@ public class Product {
 
 
     //商品多对一 订单
-    private OrderMaster orderMaster;
+    private OrderSubsidiary OrderSubsidiary;
 
     //产品评论一对多
     private List<ProductComment> productCommentList;
     //购物券  一对一
     private ShoppingCart shoppingCart;
 
+
+    public com.dz.pojo.OrderSubsidiary getOrderSubsidiary() {
+        return OrderSubsidiary;
+    }
+
+    public void setOrderSubsidiary(com.dz.pojo.OrderSubsidiary orderSubsidiary) {
+        OrderSubsidiary = orderSubsidiary;
+    }
+
+    public List<ProductComment> getProductCommentList() {
+        return productCommentList;
+    }
+
+    public void setProductCommentList(List<ProductComment> productCommentList) {
+        this.productCommentList = productCommentList;
+    }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 
     public Integer getId() {
         return id;

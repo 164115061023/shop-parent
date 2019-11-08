@@ -10,8 +10,8 @@ public class OrderSubsidiary {
 
     //订单主表 一对多
     private OrderMaster orderMaster;
-    //商品多 对一 订单辅表
-    private List<Product> productList;
+    //商品  一对一 订单辅表
+    private Product product;
 
 
     public Integer getId() {
@@ -46,11 +46,11 @@ public class OrderSubsidiary {
         this.orderMaster = orderMaster;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

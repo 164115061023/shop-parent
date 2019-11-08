@@ -31,9 +31,9 @@ public class MynestController {
     @Autowired
     //商品评论表
     private ProductCommentService productCommentService;
-    //评价照片表
+    //商品表
     @Autowired
-    private ProductCommentPicService productCommentPicService;
+    private ProductService productService;
 
 
     //跳转到消息页面
@@ -127,13 +127,10 @@ public class MynestController {
         List<List<ProductCommentPic>> productComments = new ArrayList<>();
         //循环评论
         for (ProductComment pcl:productCommentList){
-            //获取照片集合
-            List<ProductCommentPic> productCommentPicList = productCommentPicService.findByProductCommentId(pcl.getId());
-            for (ProductCommentPic pcp:productCommentPicList){
-
-
-            }
-
+            //获取评价照片集合
+            List<ProductCommentPic> productCommentPicList = pcl.getProductCommentPicList();
+            //获取订单商品信息
+            Product product = productService.findById(pcl.getId());
         }
 
 

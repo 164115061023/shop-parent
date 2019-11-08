@@ -52,9 +52,30 @@ public interface OrderMasterDao {
 
 
     //多表联查获取    商品名称
-    @Select("SELECT product_name productName FROM product p JOIN order_subsidiary o JOIN order_master om ON p.id = o.product_id AND om.id = o.order_id WHERE om.id = #{id}")
+    @Select("SELECT p.product_name productName FROM product p JOIN order_subsidiary o JOIN order_master om ON p.id = o.product_id AND om.id = o.order_id WHERE om.id = #{id}")
 
     List<String> findProductName(Integer id);
+
+    //多表查询 通过订单id 查找商品
+    @Select("select * from order_master where user_login_id = #{userLoginId} ")
+    @Results({
+            @Result(column = "id",property = "id"),
+            @Result(column = "orderno",property = "orderNo"),
+            @Result(column = "user_login_id",property = "userLoginId"),
+            @Result(column = "address_id",property = "addressId"),
+            @Result(column = "payment_method",property = "paymentMethod"),
+            @Result(column = "discount_money",property = "discountMoney"),
+            @Result(column = "shopping_money",property = "shoppingMoney"),
+            @Result(column = "payment_money",property = "paymentMoney"),
+            @Result(column = "shopping_card_id",property = "shoppingCardId"),
+            @Result(column = "create_time",property = "createTime"),
+            @Result(column = "pay_time",property = "payTime"),
+            @Result(column = "receive_time",property = "receiveTime"),
+            @Result(column = "order_status",property = "orderStatus"),
+            @Result(column = "order_point",property = "orderPoint"),
+            @Result(column = "id",property = "orderSubsidiaryList",many = @Many(select = "com.dz.dao.OrderSubsidiaryDao.findByOrderId"))
+    })
+    List<OrderMaster> findProductInfo(Integer userLoginId);
 
 
 }

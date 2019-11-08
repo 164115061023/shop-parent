@@ -17,7 +17,7 @@ public class ProductService {
     public Product findById(Integer id){
         return productDao.findById(id);
     }
-
+    //查找权限是今日推荐的商品
     public List<Product> findByRecommend() {
         return productDao.findByRecommend();
     }
