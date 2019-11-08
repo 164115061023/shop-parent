@@ -13,9 +13,9 @@ public class ProductCommentService {
     @Autowired
     private ProductCommentDao productCommentDao;
 
-    //通过UserLoginID查找评论
-    public List<ProductComment> findByUserId(Integer userId){
-        return productCommentDao.findByUserId(userId);
+    //通过UserLoginId查找评论
+    public List<ProductComment> findByUserId(Integer userLoginId){
+        return productCommentDao.findByUserId(userLoginId);
     }
 
 

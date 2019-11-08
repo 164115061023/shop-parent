@@ -3,7 +3,7 @@ package com.dz.pojo;
 public class AfterSale {
     //售后表
     private Integer id;
-    private Integer orderMasterId; // 订单编号id
+    private String orderNo; // 订单编号
     private String createTime;//申请时间
     private Integer userLoginId;//用户id
 
@@ -19,12 +19,12 @@ public class AfterSale {
         this.id = id;
     }
 
-    public Integer getOrderMasterId() {
-        return orderMasterId;
+    public String getOrderNo() {
+        return orderNo;
     }
 
-    public void setOrderMasterId(Integer orderMasterId) {
-        this.orderMasterId = orderMasterId;
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
     }
 
     public String getCreateTime() {

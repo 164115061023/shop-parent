@@ -11,14 +11,14 @@ public class OrderMaster {
     private String paymentMethod;//付款方式
     private Double discountMoney;//折扣价
     private Double shoppingMoney;//原价
-    private Double paymentMoney;//应付金额
+    private Double paymentMoney;//应付总金额
     private Integer shoppingCardId;//购物券编号
     private String createTime;//创建时间
     private String payTime;//下单时间
     private String receiveTime;//收货时间
     private String orderStatus;//订单状态
     private Double orderPoint;//购物积分
-    private Integer productId;//商品Id
+   // private Integer productId;//商品Id
 
 
     //user一对多
@@ -29,8 +29,11 @@ public class OrderMaster {
     private ShoppingCart shoppingCart;
     //售后 一对一
     private AfterSale afterSale;
-    //商品  多对订单一
-    public List<Product> productList;
+    //订单辅表 多对一
+    private List<OrderSubsidiary> orderSubsidiaryList;
+
+   /* //商品  多对订单一
+    private List<Product> productList;*/
 
 
     public Integer getId() {
@@ -146,14 +149,6 @@ public class OrderMaster {
     }
 
 
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
     public UserLogin getUserLogin() {
         return userLogin;
     }
@@ -186,11 +181,20 @@ public class OrderMaster {
         this.afterSale = afterSale;
     }
 
-    public List<Product> getProductList() {
+  /*  public List<Product> getProductList() {
         return productList;
     }
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }*/
+
+
+    public List<OrderSubsidiary> getOrderSubsidiaryList() {
+        return orderSubsidiaryList;
+    }
+
+    public void setOrderSubsidiaryList(List<OrderSubsidiary> orderSubsidiaryList) {
+        this.orderSubsidiaryList = orderSubsidiaryList;
     }
 }

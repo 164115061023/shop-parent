@@ -41,7 +41,7 @@ public class BillController {
         //判断优惠券时间是否在有效期内
         for (ProductUserCoupon puc :productUserCouponList){
 
-            //讲开始与结束时间转换为日期格式
+            //将开始与结束时间转换为日期格式
             Date starTime = sdf.parse(puc.getStartTime());
             Date endTime = sdf.parse(puc.getEndTime());
 
