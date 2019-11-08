@@ -9,9 +9,6 @@ import java.util.List;
 
 public interface ProductDao {
 
-
-
-
     //通过userid获得评论
     @Select("select * from product where user_id = #{userId} ")
     List<Product> findByUserId(Integer userId);
