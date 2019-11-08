@@ -11,6 +11,7 @@ public interface OrderMasterDao {
             "create_time createTime,pay_time payTime,receive_time receiveTime,order_status orderStatus," +
             "order_point orderPoint from order_master where id = #{id}")
     OrderMaster findById(Integer id);
+    //通过id查找订单信息
 
 
 

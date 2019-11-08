@@ -15,6 +15,10 @@ public class ProductService {
     public Product findById(Integer id){
         return productDao.findById(id);
     }
+    //通过id查找
+    public Product findAll(Integer id){
+        return productDao.findAll(id);
+    }
 
 }
 

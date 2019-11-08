@@ -21,6 +21,7 @@ public class UserLogin {
     private List<OrderMaster> orderMasterList;
     //购物券 多对一
     private List<ShoppingCart> shoppingCartList;
+    private List<SafeQuestion> safeQuestionList;
 
 
     public Integer getId() {
@@ -101,5 +102,13 @@ public class UserLogin {
 
     public void setShoppingCartList(List<ShoppingCart> shoppingCartList) {
         this.shoppingCartList = shoppingCartList;
+    }
+
+    public List<SafeQuestion> getSafeQuestionList() {
+        return safeQuestionList;
+    }
+
+    public void setSafeQuestionList(List<SafeQuestion> safeQuestionList) {
+        this.safeQuestionList = safeQuestionList;
     }
 }

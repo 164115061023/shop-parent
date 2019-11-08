@@ -5,6 +5,8 @@ import com.dz.pojo.SafeQuestion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SafeQuestionService {
     @Autowired
@@ -13,9 +15,12 @@ public class SafeQuestionService {
     public void save(SafeQuestion safeQuestion){
         safeQuestionDao.save(safeQuestion);
     }
-    //查找user_login_id
-    public  SafeQuestion findByUserId(Integer userLoginId){
-        return safeQuestionDao.findByUserId(userLoginId);
+    //修改问题
+    public  void updateQuestion(SafeQuestion safeQuestion){
+        safeQuestionDao.updateQuestion(safeQuestion);
     }
-
+    //查询答案
+    public  List<SafeQuestion> findByUid(Integer userLoginId){
+        return safeQuestionDao.findByUid(userLoginId);
+    }
 }

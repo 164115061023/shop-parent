@@ -10,6 +10,9 @@ public interface ProductDao {
             "price,publish_status publishStatus,weight,length,height,width,color_type colorType,production_date productionDate" +
             "shelf_life shelfLife,descript,brand_id brandId,stock,product_type_id productTypeId from product where id = #{id}")
     Product findById(Integer id);
+    //通过id 查找商品信息
+    @Select("SELECT id,product_name as productName,price,size,color,pack from product where id = #{id}")
+    Product findAll(Integer id);
 
 
 

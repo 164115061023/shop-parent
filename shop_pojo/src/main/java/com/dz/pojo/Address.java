@@ -7,17 +7,17 @@ public class Address {
     private String province;//省
     private String city;//市
     private String district;//区，县
-    private String detailAddress;//详细信息
-    private Integer isDefault;//默认地址
+    private String detailaddress;//详细信息
     private Integer userMessageId;//用户信息id
     private String consignee;//收货人
+    private String content;//省市县结合
+    private String phone;//手机号
+
 
     private UserLogin userLogin;//user 信息 一对多
 
     //订单 一对一
     private OrderMaster orderMaster;
-
-
 
     public Integer getId() {
         return id;
@@ -67,20 +67,45 @@ public class Address {
         this.district = district;
     }
 
-    public String getDetailAddress() {
-        return detailAddress;
+    public String getDetailaddress() {
+        return detailaddress;
     }
 
-    public void setDetailAddress(String detailAddress) {
-        this.detailAddress = detailAddress;
+    public void setDetailaddress(String detailaddress) {
+        this.detailaddress = detailaddress;
     }
 
-    public Integer getIsDefault() {
-        return isDefault;
+
+    public Integer getUserMessageId() {
+        return userMessageId;
     }
 
-    public void setIsDefault(Integer isDefault) {
-        this.isDefault = isDefault;
+    public void setUserMessageId(Integer userMessageId) {
+        this.userMessageId = userMessageId;
+    }
+
+    public String getConsignee() {
+        return consignee;
+    }
+
+    public void setConsignee(String consignee) {
+        this.consignee = consignee;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public UserLogin getUserLogin() {
@@ -97,21 +122,5 @@ public class Address {
 
     public void setOrderMaster(OrderMaster orderMaster) {
         this.orderMaster = orderMaster;
-    }
-
-    public Integer getUserMessageId() {
-        return userMessageId;
-    }
-
-    public void setUserMessageId(Integer userMessageId) {
-        this.userMessageId = userMessageId;
-    }
-
-    public String getConsignee() {
-        return consignee;
-    }
-
-    public void setConsignee(String consignee) {
-        this.consignee = consignee;
     }
 }

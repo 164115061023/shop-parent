@@ -22,6 +22,9 @@ public class Product {
     private Integer brandId;//品牌
     private Integer stock;//库存
     private Integer productTypeId;//类别
+    private String size;//尺码
+    private String color;//颜色
+    private String pack;//包装
 
 
     //多对一
@@ -213,5 +216,29 @@ public class Product {
 
     public void setOrderMaster(OrderMaster orderMaster) {
         this.orderMaster = orderMaster;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getPack() {
+        return pack;
+    }
+
+    public void setPack(String pack) {
+        this.pack = pack;
     }
 }

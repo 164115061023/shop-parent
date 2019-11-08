@@ -18,8 +18,7 @@ public class OrderMaster {
     private String receiveTime;//收货时间
     private String orderStatus;//订单状态
     private Double orderPoint;//购物积分
-    private Integer productId;//商品Id
-
+    private Integer productid;//产品id
 
     //user一对多
     private UserLogin userLogin;
@@ -145,15 +144,6 @@ public class OrderMaster {
         this.orderPoint = orderPoint;
     }
 
-
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
     public UserLogin getUserLogin() {
         return userLogin;
     }
@@ -192,5 +182,13 @@ public class OrderMaster {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public Integer getProductid() {
+        return productid;
+    }
+
+    public void setProductid(Integer productid) {
+        this.productid = productid;
     }
 }

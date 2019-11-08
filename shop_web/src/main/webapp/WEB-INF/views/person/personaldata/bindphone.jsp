@@ -106,7 +106,7 @@
                             </span>
 							<span class="step-2 step">
                                 <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
+                                <i class="u-stage-icon-inner oe2">2<em class="bg"></em></i>
                                 <p class="stage-name">完成</p>
                             </span>
 							<span class="u-progress-placeholder"></span>
@@ -115,39 +115,45 @@
 							<div class="u-progress-bar-inner"></div>
 						</div>
 					</div>
-					<form class="am-form am-form-horizontal">
+					<form class="am-form am-form-horizontal" action="/person/personaldata/changetel" method="post">
 						<div class="am-form-group bind">
-							<label for="user-phone" class="am-form-label">验证手机</label>
+							<label for="user-phone" class="am-form-label">原手机号</label>
 							<div class="am-form-content">
-								<span id="user-phone">186XXXX0531</span>
+								<span id="user-phone">${userMessage.tel}</span>
 							</div>
 						</div>
-						<div class="am-form-group code">
+
+						<%--<div class="am-form-group code">
 							<label for="user-code" class="am-form-label">验证码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-code" placeholder="短信验证码">
+								<input type="tel" id="user-code" name="code" placeholder="短信验证码">
 							</div>
 							<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-								<div class="am-btn am-btn-danger">验证码</div>
+								&lt;%&ndash;<div class="am-btn am-btn-danger">验证码</div>&ndash;%&gt;
+								<input type="submit" class="am-btn am-btn-danger" id="code-btn" value="验证码">
 							</a>
-						</div>
+						</div>--%>
+
 						<div class="am-form-group">
 							<label for="user-new-phone" class="am-form-label">验证手机</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-new-phone" placeholder="绑定新手机号">
+								<input type="hidden" name="userLoginId" value="${userMessage.userLoginId}">
+								<input type="tel" id="user-new-phone" class="np" name="tel" placeholder="绑定新手机号">
 							</div>
 						</div>
 						<div class="am-form-group code">
 							<label for="user-new-code" class="am-form-label">验证码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-new-code" placeholder="短信验证码">
+								<input type="tel" id="user-new-code" class="dx" name="code" placeholder="短信验证码">
 							</div>
-							<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode2">
-								<div class="am-btn am-btn-danger">验证码</div>
+							<a class="btn" href="javascript:void(0);">
+								<div class="am-btn am-btn-danger" id="code-btn">验证码</div>
+								<%--<input  class="am-btn am-btn-danger" id="code-btn" value="验证码">--%>
 							</a>
 						</div>
 						<div class="info-btn">
-							<div class="am-btn am-btn-danger">保存修改</div>
+							<%--<div class="am-btn am-btn-danger">保存修改</div>--%>
+							<input type="submit" value="保存修改" id="btn" class="am-btn am-btn-danger">
 						</div>
 
 					</form>
@@ -182,6 +188,48 @@
 				<jsp:param name="menu" value="bindphone"/>
 			</jsp:include>
 		</div>
+
+		<script>
+			$(function () {
+				var code = ""; //接收验证码
+				$('#code-btn').click(function(){
+					var count =60;
+					var tel=$(".np").val();//手机号码
+					$.ajax({
+							type:'post',
+							url:'/person/personaldata/sendCode',
+							data:'tel='+tel,
+							success:function (abc) {
+								code=abc;
+					  }
+					});
+					//开始计时
+					$("#code-btn").attr('disabled','disabled');
+					$("#code-btn").html(count + "秒");
+					var timer = setInterval(function(){//设置间隔
+						count--;
+						$("#code-btn").html(count + "秒");
+						if (count==0) {
+							clearInterval(timer);//清空间隔
+							$("#code-btn").attr("disabled",false);//启用按钮
+							$("#code-btn").html("重新发送验证码");
+							code = "";//清除验证码。如果不清除，过时间后，输入收到的验证码依然有效
+						}
+					},1000);
+				});
+				$("#btn").click(function () {
+					/*$(".oe2").show().css({"background-color": "green"})*/
+					/*console.log("adada"+code);
+					console.log($.trim($(".dx").val()));*/
+					if($.trim($(".dx").val())!=code){
+						alert("请输入正确的验证码");
+						return false;
+					}else if($.trim($(".dx").val())==code){
+						return true;
+					}
+				});
+			});
+		</script>
 
 	</body>
 

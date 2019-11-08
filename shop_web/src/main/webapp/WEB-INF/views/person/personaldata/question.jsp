@@ -107,7 +107,7 @@
                             </span>
 							<span class="step-2 step">
                                 <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
+                                <i class="u-stage-icon-inner oe2">2<em class="bg"></em></i>
                                 <p class="stage-name">完成</p>
                             </span>
 							<span class="u-progress-placeholder"></span>
@@ -116,14 +116,14 @@
 							<div class="u-progress-bar-inner"></div>
 						</div>
 					</div>
-					<form class="am-form am-form-horizontal" action="/person/personaldata/savequestion" method="post">
+
+					<form class="am-form am-form-horizontal" action="/person/personaldata/updateQuestion" method="post">
 						<%--问题一start--%>
 						<div class="am-form-group select">
-							<input type="hidden" name="userLoginId" value="${safeQuestion.userLoginId}">
 							<label id="user-question1" class="am-form-label">问题一</label>
 							<div class="am-form-content">
-								<%--<input type="text" name="question">--%>
-								<select data-am-selected>
+								<input type="hidden" name="userLoginId" value="1">
+								<select data-am-selected class="select1">
 									<option value="a" selected>请选择安全问题</option>
 									<option value="b">您最喜欢的颜色是什么？</option>
 									<option value="c">您的故乡在哪里？</option>
@@ -135,7 +135,7 @@
 						<div class="am-form-group">
 							<label for="user-answer1" class="am-form-label">答案</label>
 							<div class="am-form-content">
-								<input type="text" id="user-answer1" name="answer" placeholder="请输入安全问题答案">
+								<input type="text" id="user-answer1" class="answer1" name="answer" placeholder="请输入安全问题答案">
 							</div>
 						</div>
 						<%--问题一end--%>
@@ -145,9 +145,7 @@
 							<label id="user-question2" class="am-form-label">问题二</label>
 							<div class="am-form-content">
 
-							<%--<input type="text" name="question2">--%>
-
-							<select data-am-selected>
+							<select data-am-selected class="select2">
 								<option value="a" selected>请选择安全问题</option>
 								<option value="b">您最喜欢的颜色是什么？</option>
 								<option value="c">您的故乡在哪里？</option>
@@ -158,14 +156,14 @@
 						<div class="am-form-group">
 							<label for="user-answer2" class="am-form-label">答案</label>
 							<div class="am-form-content">
-								<input type="text" id="user-answer2" name="answer" placeholder="请输入安全问题答案">
+								<input type="text" id="user-answer2" name="answer" class="answer2"  placeholder="请输入安全问题答案">
 							</div>
 						</div>
 						<%--问题二end--%>
 
 						<div class="info-btn">
 							<%--<div class="am-btn am-btn-danger">保存修改</div>--%>
-							<input type="submit" value="保存修改" class="am-btn am-btn-danger" >
+							<input type="submit" value="保存修改" class="am-btn am-btn-danger bca" >
 						</div>
 
 					</form>
@@ -200,6 +198,15 @@
 				<jsp:param name="menu" value="question"/>
 			</jsp:include>
 		</div>
+
+		<script>
+			$(function () {
+				$(".bca").click(function () {
+
+					$(".oe2").show().css({"background-color": "green"});
+				});
+			});
+		</script>
 
 	</body>
 

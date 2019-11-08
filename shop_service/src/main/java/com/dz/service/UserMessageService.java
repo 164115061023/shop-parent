@@ -26,4 +26,16 @@ public class UserMessageService {
     public void updateBirthday(String birthday) {
        userMessageDao.updateBirthday(birthday);
     }
+    //实名认证
+    public void updateIdCard(String idcard){
+       userMessageDao.updateIdCard(idcard);
+    }
+    //修改手机号
+    public void updateTel(String tel){
+       userMessageDao.updateTel(tel);
+    }
+    //修改邮箱
+    public void updateEmail(String email){
+       userMessageDao.updateEmail(email);
+    }
 }

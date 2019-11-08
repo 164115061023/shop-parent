@@ -128,13 +128,11 @@
 						<div class="am-form-group code">
 							<label for="checkCode" class="am-form-label">验证码</label>
 							<div class="am-form-content">
-								<input  id="checkCode"  type="text"  name="code" placeholder="短信验证码">
+								<input  id="checkCode"  type="text" class="dx"  name="code" placeholder="短信验证码">
 							</div>
-							<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-								<%--<div class="am-btn am-btn-danger">验证码</div>--%>
-
-
-								<input type="submit" class="am-btn am-btn-danger" id="code-btn" value="验证码">
+							<a class="btn" href="javascript:void(0);" >
+								<div class="am-btn am-btn-danger" id="code-btn">验证码</div>
+								<%--<input type="submit" class="am-btn am-btn-danger" id="code-btn" value="验证码">--%>
 							</a>
 						</div>
 						<div class="am-form-group">
@@ -188,17 +186,26 @@
 		</div>
 
 		<script>
+            $(function () {
 			var code = ""; //接收验证码
 			$('#code-btn').click(function(){
 				var count =60;
 				var tel=${userMessage.tel};//手机号码
+                $.ajax({
+                    type:'post',
+                    url:'/person/personaldata/sendCode',
+                    data:'tel='+tel,
+                    success:function (abc) {
+                        code=abc;
+                    }
+                });
 
 				//开始计时
 				$("#code-btn").attr('disabled','disabled');
-				$("#code-btn").html("倒计时" + count + "秒");
+				$("#code-btn").html(count + "秒");
 				var timer = setInterval(function(){
 					count--;
-					$("#code-btn").html("倒计时" + count + "秒");
+					$("#code-btn").html(count + "秒");
 					if (count==0) {
 						clearInterval(timer);
 						$("#code-btn").attr("disabled",false);//启用按钮
@@ -208,18 +215,16 @@
 				},1000);
 				$("#btn").click(function () {
 					$(".oe2").show().css({"background-color": "green"})
+					if($.trim($(".dx").val())!=code){
+						alert("请输入正确的验证码");
+						return false;
+					}else if($.trim($(".dx").val())==code){
+					    return true;
+                    }
 				});
 
-				//向后台发送处理数据
-				$.ajax({
-					type: "POST", //用POST方式传输
-					dataType: "text", //数据格式:JSON
-					url: '/person/personaldata/sendCode', //目标地址
-					data: "tel=" + tel + "&code=" + code,
-					error: function (XMLHttpRequest, textStatus, errorThrown) { },
-					success: function (msg){ }
-				});
 			});
+            });
 		</script>
 
 
