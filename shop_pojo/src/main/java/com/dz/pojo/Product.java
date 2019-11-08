@@ -11,7 +11,8 @@ public class Product {
     private String productName;//产品名称
     private Integer typeId;//产品类别
     //private Integer supplierId;//供应商id
-    private Double price;//价格
+    private Double original_price;//原价格
+    private Double current_price;//现价格
     private String publishStatus;//商品状态（出售中/已下架）
     //private Double weight;//重量
     //private Double length;//长
@@ -24,8 +25,34 @@ public class Product {
     private Integer brandId;//品牌
     private Integer stock;//库存
     //private Integer productTypeId;//类别
+    private String pic;//商品主图片
     private String priority;//优先级
+    private String title1;
+    private String title2;
 
+    public String getTitle1() {
+        return title1;
+    }
+
+    public void setTitle1(String title1) {
+        this.title1 = title1;
+    }
+
+    public String getTitle2() {
+        return title2;
+    }
+
+    public void setTitle2(String title2) {
+        this.title2 = title2;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
 
     //多对一
     private ProductType productType; //产品类别
@@ -67,12 +94,20 @@ public class Product {
         this.typeId = typeId;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getOriginal_price() {
+        return original_price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setOriginal_price(Double original_price) {
+        this.original_price = original_price;
+    }
+
+    public Double getCurrent_price() {
+        return current_price;
+    }
+
+    public void setCurrent_price(Double current_price) {
+        this.current_price = current_price;
     }
 
     public String getPublishStatus() {

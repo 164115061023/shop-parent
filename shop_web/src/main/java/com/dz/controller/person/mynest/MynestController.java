@@ -28,7 +28,6 @@ public class MynestController {
     @Autowired
     //订单主表
     private OrderMasterService orderMasterService;
-
     @Autowired
     //商品评论表
     private ProductCommentService productCommentService;
@@ -131,9 +130,7 @@ public class MynestController {
             //获取照片集合
             List<ProductCommentPic> productCommentPicList = productCommentPicService.findByProductCommentId(pcl.getId());
             for (ProductCommentPic pcp:productCommentPicList){
-                if (null != pcp.getPic()|| !pcp.getPic().equals("")){
-                    System.out.println(pcp.getPic());
-                }
+
 
             }
 

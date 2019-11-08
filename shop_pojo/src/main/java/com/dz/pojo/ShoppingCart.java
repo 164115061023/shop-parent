@@ -12,8 +12,8 @@ public class  ShoppingCart {
     private Double price;//价格
     private String createTime;//创建时间
 
-    //购物车产品，一对多
-    private List<Product> productList;
+    //购物车产品
+    private Product product;
 
 
     public Integer getId() {
@@ -64,11 +64,11 @@ public class  ShoppingCart {
         this.createTime = createTime;
     }
 
-    public List<Product> getProductList() {
-        return productList;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

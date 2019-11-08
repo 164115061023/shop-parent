@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -33,8 +35,15 @@
     <ul class="message-l">
         <div class="topMessage">
             <div class="menu-hd">
-                <a href="#" target="_top" class="h">亲，请登录</a>
-                <a href="#" target="_top">免费注册</a>
+                <c:if test="${sessionScope.userLogin!=null}">
+                    <a href="#" target="_top" class="h">欢迎您</a>
+                    <a href="#" target="_top">${sessionScope.userLogin.username}</a>
+                </c:if>
+                <c:if test="${sessionScope.userLogin==null}">
+                    <a href="#" target="_top" class="h">亲，请登录</a>
+                    <a href="#" target="_top">免费注册</a>
+                </c:if>
+
             </div>
         </div>
     </ul>
@@ -43,17 +52,20 @@
             <div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
         </div>
         <div class="topMessage my-shangcheng">
-            <div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+            <div class="menu-hd MyShangcheng"><a href="/person/index" target="_top"><i
+                    class="am-icon-user am-icon-fw"></i>个人中心</a>
             </div>
         </div>
         <div class="topMessage mini-cart">
-            <div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i
+            <div class="menu-hd"><a id="mc-menu-hd" href="/shopcart/shopcart" target="_top"><i
                     class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum"
-                                                                                          class="h">0</strong></a></div>
+                                                                                          class="h">0</strong></a>
+            </div>
         </div>
         <div class="topMessage favorite">
             <div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
             </div>
+
         </div>
     </ul>
 </div>
@@ -282,59 +294,60 @@
                         <input id="min" class="am-btn am-btn-default" name="" type="button" value="-"/>
                         <input id="text_box" name="" type="text" value="1" style="width:30px;"/>
                         <input id="add" class="am-btn am-btn-default" name="" type="button" value="+"/>
-                        <span id="Stock2" class="tb-hidden">库存<span class="stock">1000</span>件</span>
+                        <span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
                     </dd>
+                </dl>
 
-
-                    <div class="clear"></div>
-
-                    <div class="btn-op">
-                        <div class="btn am-btn am-btn-warning">确认</div>
-                        <div class="btn close am-btn am-btn-warning">取消</div>
-                    </div>
             </div>
-            <div class="theme-signin-right">
-                <div class="img-info">
-                    <img src="/static/images/songzi.jpg"/>
-                </div>
-                <div class="text-info">
-                    <span class="J_Price price-now">¥39.00</span>
-                    <span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
-                </div>
-            </div>
+            <div class="clear"></div>
 
-            </form>
+            <div class="btn-op">
+                <div class="btn am-btn am-btn-warning">确认</div>
+                <div class="btn close am-btn am-btn-warning">取消</div>
+            </div>
+        </div>
+        <div class="theme-signin-right">
+            <div class="img-info">
+                <img src="/static/images/songzi.jpg"/>
+            </div>
+            <div class="text-info">
+                <span class="J_Price price-now">¥39.00</span>
+                <span id="Stock2" class="tb-hidden">库存<span class="stock">1000</span>件</span>
+            </div>
+        </div>
+
+        </form>
+    </div>
+</div>
+
+</dd>
+</dl>
+<div class="clear"></div>
+<!--活动	-->
+<div class="shopPromotion gold">
+    <div class="hot">
+        <dt class="tb-metatit">店铺优惠</dt>
+        <div class="gold-list">
+            <p>购物满2件打8折，满3件7折<span>点击领券<i class="am-icon-sort-down"></i></span></p>
         </div>
     </div>
-
-    </dd>
-    </dl>
     <div class="clear"></div>
-    <!--活动	-->
-    <div class="shopPromotion gold">
-        <div class="hot">
-            <dt class="tb-metatit">店铺优惠</dt>
-            <div class="gold-list">
-                <p>购物满2件打8折，满3件7折<span>点击领券<i class="am-icon-sort-down"></i></span></p>
-            </div>
-        </div>
-        <div class="clear"></div>
-        <div class="coupon">
-            <dt class="tb-metatit">优惠券</dt>
-            <div class="gold-list">
-                <ul>
-                    <li>125减5</li>
-                    <li>198减10</li>
-                    <li>298减20</li>
-                </ul>
-            </div>
+    <div class="coupon">
+        <dt class="tb-metatit">优惠券</dt>
+        <div class="gold-list">
+            <ul>
+                <li>125减5</li>
+                <li>198减10</li>
+                <li>298减20</li>
+            </ul>
         </div>
     </div>
+</div>
 </div>
 
 <div class="pay">
     <div class="pay-opt">
-        <a href="home.html"><span class="am-icon-home am-icon-fw">首页</span></a>
+        <a href="/main/home"><span class="am-icon-home am-icon-fw">首页</span></a>
         <a><span class="am-icon-heart am-icon-fw">收藏</span></a>
 
     </div>
@@ -345,7 +358,7 @@
     </li>
     <li>
         <div class="clearfix tb-btn tb-btn-basket theme-login">
-            <a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+            <a class="addshopcart" id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
         </div>
     </li>
 </div>
@@ -1216,10 +1229,10 @@
 
             </div>
             <div id="shopCart" class="item">
-                <a href="#">
+                <a href="/shopcart/shopcart" class="toshopcart">
                     <span class="message"></span>
                 </a>
-                <p>
+                <p class="shopcart">
                     购物车
                 </p>
                 <p class="cart_num">0</p>
@@ -1351,6 +1364,40 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    $(function () {
+
+        $('.shopcart').click(function () {
+            $('.toshopcart')[0].click();
+        });
+
+        $.ajax({
+            type:'post'
+            ,url:'/shopcart/querynum'
+            ,success:function (json) {
+                $('.cart_num').html(json)
+            }
+        });
+
+
+
+
+        $('.addshopcart').click(function () {
+            $.ajax({
+                type:'post'
+                ,url:'/shopcart/querynum'
+                ,success:function (json) {
+                    $('.cart_num').html(json)
+                }
+            })
+        })
+
+        
+    })
+
+</script>
 
 </body>
 
