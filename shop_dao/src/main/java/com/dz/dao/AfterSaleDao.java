@@ -23,7 +23,4 @@ public interface AfterSaleDao {
 
    List<AfterSale> findByUserLoginId(Integer userLoginId);
 
-    // 售后与订单表联查
-
-
 }
