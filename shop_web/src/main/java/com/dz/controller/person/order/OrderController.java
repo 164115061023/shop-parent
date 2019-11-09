@@ -1,12 +1,18 @@
 package com.dz.controller.person.order;
 
+import com.dz.pojo.Product;
+import com.dz.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/person/order")
 public class OrderController {
 
+    @Autowired
+    private ProductService productService;
     //跳转到订单管理页面
     @RequestMapping("/order")
     public String order(){

@@ -31,8 +31,8 @@ public class SMS {
         String content = new String("您的验证码是：" + mobile_code + "。请不要把验证码泄露给其他人。");
 
         NameValuePair[] data = {//提交短信
-                new NameValuePair("account", "C45829944"), //查看用户名 登录用户中心->验证码通知短信>产品总览->API接口信息->APIID
-                new NameValuePair("password", "08a10e3671ee09e04c2e2ac48b0d2f5a"), //查看密码 登录用户中心->验证码通知短信>产品总览->API接口信息->APIKEY
+                new NameValuePair("account", "C15820334"), //查看用户名 登录用户中心->验证码通知短信>产品总览->API接口信息->APIID
+                new NameValuePair("password", "56d72430c3fb3ea7fcab72e22a675255"), //查看密码 登录用户中心->验证码通知短信>产品总览->API接口信息->APIKEY
                 //new NameValuePair("password", util.StringUtil.MD5Encode("密码")),
                 new NameValuePair("mobile", tel),
                 new NameValuePair("content", content),

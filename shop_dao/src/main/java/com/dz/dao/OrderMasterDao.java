@@ -28,6 +28,7 @@ public interface OrderMasterDao {
     })
 
     OrderMaster findById(Integer id);
+    //通过id查找订单信息
 
     //通过userLoginId查找订单
     @Select("select * from order_master where  user_login_id = #{userLoginId} AND order_status = '申请退款' OR order_status = '卖家已退款' OR order_status = '退款中'")

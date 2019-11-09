@@ -21,9 +21,11 @@ public class UserLogin {
     private List<OrderMaster> orderMasterList;
     //购物车 多对一
     private List<ShoppingCart> shoppingCartList;
+
+    private List<SafeQuestion> safeQuestionList;
+
     //优惠券 多对一
     private List<ProductUserCoupon> productUserCoupons;
-
 
     public Integer getId() {
         return id;
@@ -103,6 +105,14 @@ public class UserLogin {
 
     public void setShoppingCartList(List<ShoppingCart> shoppingCartList) {
         this.shoppingCartList = shoppingCartList;
+    }
+
+    public List<SafeQuestion> getSafeQuestionList() {
+        return safeQuestionList;
+    }
+
+    public void setSafeQuestionList(List<SafeQuestion> safeQuestionList) {
+        this.safeQuestionList = safeQuestionList;
     }
 
     public List<ProductUserCoupon> getProductUserCoupons() {

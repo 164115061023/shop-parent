@@ -106,7 +106,7 @@
                             </span>
 							<span class="step-2 step">
                                 <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
+                                <i class="u-stage-icon-inner oe2">2<em class="bg"></em></i>
                                 <p class="stage-name">完成</p>
                             </span>
 							<span class="u-progress-placeholder"></span>
@@ -115,24 +115,27 @@
 							<div class="u-progress-bar-inner"></div>
 						</div>
 					</div>
-					<form class="am-form am-form-horizontal">
+
+					<form class="am-form am-form-horizontal" action="/person/personaldata/sendMsg" method="post">
 						<div class="am-form-group">
 							<label for="user-email" class="am-form-label">验证邮箱</label>
 							<div class="am-form-content">
-								<input type="email" id="user-email" placeholder="请输入邮箱地址">
+								<input type="email" id="user-email" name="email" placeholder="请输入邮箱地址">
+								<input type="hidden" name="userLoginId" value="${userMessage.userLoginId}">
 							</div>
 						</div>
 						<div class="am-form-group code">
 							<label for="user-code" class="am-form-label">验证码</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-code" placeholder="验证码">
+								<input type="text" id="user-code" name="code" id="yx" placeholder="验证码">
 							</div>
-							<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();" id="sendMobileCode">
-								<div class="am-btn am-btn-danger">验证码</div>
+							<a class="btn" href="javascript:void(0);">
+								<div class="am-btn am-btn-danger" id="code-btn">验证码</div>
 							</a>
 						</div>
 						<div class="info-btn">
-							<div class="am-btn am-btn-danger">保存修改</div>
+							<%--<div class="am-btn am-btn-danger">保存修改</div>--%>
+							<input type="submit" value="保存修改" class="am-btn am-btn-danger btn">
 						</div>
 
 					</form>
@@ -168,6 +171,45 @@
 			</jsp:include>
 		</div>
 
+		<script>
+			$(function () {
+				var code="";
+				$("#code-btn").click(function () {
+					var count=60;
+					var email=$("#user-email").val();
+					$.ajax({
+						type:'post',
+						url:'/person/personaldata/sendMsg',
+						data:{email:email},
+						success:function (abc) {
+							code=abc;
+						}
+					});
+					//开始计时
+					$("#code-btn").attr('disabled','disabled');
+					$("#code-btn").html(count + "秒");
+					var timer = setInterval(function(){//设置间隔
+						count--;
+						$("#code-btn").html(count + "秒");
+						if (count==0) {
+							clearInterval(timer);//清楚间隔
+							$("#code-btn").attr("disabled",false);
+							$("#code-btn").html("重新发送验证码");
+							code = "";
+						}
+					},1000);
+				});
+				$(".btn").click(function () {
+					/*$(".oe2").show().css({"background-color": "green"})*/
+					if($.trim($("#yx").val())!=code){
+						alert("请输入正确的验证码");
+						return false;
+					}else if($.trim($("#yx").val())==code){
+						return true;
+					}
+				});
+			})
+		</script>
 	</body>
 
 </html>

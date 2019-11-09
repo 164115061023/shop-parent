@@ -6,6 +6,8 @@ public class SafeQuestion {
     private String answer;//答案
     private Integer userLoginId;//登录用户id
 
+    private UserLogin userLogin;
+
     public Integer getId() {
         return id;
     }
@@ -36,5 +38,13 @@ public class SafeQuestion {
 
     public void setUserLoginId(Integer userLoginId) {
         this.userLoginId = userLoginId;
+    }
+
+    public UserLogin getUserLogin() {
+        return userLogin;
+    }
+
+    public void setUserLogin(UserLogin userLogin) {
+        this.userLogin = userLogin;
     }
 }

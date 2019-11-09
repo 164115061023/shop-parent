@@ -106,7 +106,7 @@
                             </span>
 							<span class="step-2 step">
                                 <em class="u-progress-stage-bg"></em>
-                                <i class="u-stage-icon-inner">2<em class="bg"></em></i>
+                                <i class="u-stage-icon-inner oe2">2<em class="bg"></em></i>
                                 <p class="stage-name">完成</p>
                             </span>
 							<span class="u-progress-placeholder"></span>
@@ -115,27 +115,30 @@
 							<div class="u-progress-bar-inner"></div>
 						</div>
 					</div>
-					<form class="am-form am-form-horizontal">
+
+					<form class="am-form am-form-horizontal" action="/person/personaldata/realName" method="post">
+
 						<div class="am-form-group bind">
 							<label for="user-info" class="am-form-label">账户名</label>
 							<div class="am-form-content">
-								<span id="user-info">186XXXX0531</span>
+								<span id="user-info">${userMessage.tel}</span>
 							</div>
 						</div>
 						<div class="am-form-group">
 							<label for="user-name" class="am-form-label">真实姓名</label>
 							<div class="am-form-content">
-								<input type="text" id="user-name" placeholder="请输入您的真实姓名">
+								<input type="text" id="user-name" name="name" value="${userMessage.name}" placeholder="请输入您的真实姓名">
 							</div>
 						</div>
 						<div class="am-form-group">
 							<label for="user-IDcard" class="am-form-label">身份证号</label>
 							<div class="am-form-content">
-								<input type="tel" id="user-IDcard" placeholder="请输入您的身份证信息">
+								<input type="tel" id="user-IDcard" name="idcard" class="card" placeholder="请输入您的身份证信息">
 							</div>
 						</div>
 						<div class="info-btn">
-							<div class="am-btn am-btn-danger">保存修改</div>
+							<%--<div class="am-btn am-btn-danger">保存修改</div>--%>
+							<input type="submit" value="保存修改" class="am-btn am-btn-danger" id="btn">
 						</div>
 
 					</form>
@@ -171,6 +174,19 @@
 			</jsp:include>
 		</div>
 
+		<script>
+			$(function () {
+				$("#btn").click(function () {
+					$(".oe2").show().css({"background-color": "green"});
+					if($.trim($(".card").val()).length==0){
+						alert("请填写身份证号码");
+					}else if($.trim($(".card").val()).length != 18){
+						alert("请填写正确的身份证号");
+					}
+				});
+			});
+		</script>
+	
 	</body>
 
 </html>
